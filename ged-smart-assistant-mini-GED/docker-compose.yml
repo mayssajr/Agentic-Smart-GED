@@ -1,0 +1,81 @@
+## Docker Compose Configuration for MiniGED
+version: '3.8'
+
+services:
+  # Frontend service
+  # frontend:
+  #   build:
+  #     context: ./MiniGED-Frontend
+  #     dockerfile: Dockerfile
+  #   container_name: miniged-frontend
+  #   ports:
+  #     - "80:80"
+  #   depends_on:
+  #     - backend
+  #   environment:
+  #     - VITE_API_URL=http://backend:8080
+  #   networks:
+  #     - miniged-network
+  #   restart: unless-stopped
+
+  # Backend service
+  # backend:
+  #   build:
+  #     context: ./MiniGED.Backend
+  #     dockerfile: Dockerfile
+  #     args:
+  #       BUILD_CONFIGURATION: Release
+  #   container_name: miniged-backend
+  #   ports:
+  #     - "8080:8080"
+  #     - "8081:8081"
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   environment:
+  #     - ASPNETCORE_ENVIRONMENT=Production
+  #     - ASPNETCORE_URLS=http://+:8080
+  #     - ConnectionStrings__DefaultConnection=Host=postgres;Database=MiniGed;Username=postgres;Password=postgres
+  #   networks:
+  #     - miniged-network
+  #   restart: unless-stopped
+
+  postgres:
+    image: postgres:15
+    container_name: miniged-postgres
+    ports:
+      - "5432:5432"
+    environment:
+      - POSTGRES_DB=MiniGed
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - miniged-network
+    restart: unless-stopped
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  adminer:
+    image: adminer:latest
+    container_name: miniged-adminer
+    ports:
+      - "8082:8080"
+    networks:
+      - miniged-network
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+
+networks:
+  miniged-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+    driver: local

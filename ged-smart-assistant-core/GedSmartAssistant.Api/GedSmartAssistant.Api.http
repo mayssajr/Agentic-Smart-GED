@@ -1,0 +1,6 @@
+@GedSmartAssistant.Api_HostAddress = http://localhost:5119
+
+GET {{GedSmartAssistant.Api_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

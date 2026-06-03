@@ -1,0 +1,45 @@
+[
+  {
+    "text": "Bonjour ! Montre-moi les derniers rapports.",
+    "isUser": true,
+    "time": "10:00"
+  },
+  {
+    "text": "Bien sur, voici les rapports disponibles :",
+    "isUser": false,
+    "time": "10:01"
+  },
+  {
+    "text": "Documents (2)",
+    "isUser": false,
+    "time": "10:01",
+    "type": "documents",
+    "documents": [
+      {
+        "name": "Rapport_Q4_2024.pdf",
+        "type": "pdf"
+      },
+      {
+        "name": "Analyse_tendances.xlsx",
+        "type": "excel"
+      }
+    ]
+  },
+  {
+    "text": "Supprime le rapport Q4.",
+    "isUser": true,
+    "time": "10:02"
+  },
+  {
+    "text": "Action realisee Rapport_Q4_2024.pdf supprime Operation reussie",
+    "isUser": false,
+    "time": "10:03",
+    "type": "action"
+  },
+  {
+    "text": "Thinking...",
+    "isUser": false,
+    "time": "10:04",
+    "type": "thinking"
+  }
+]

@@ -1,0 +1,4104 @@
+{
+  "version": "1.0",
+  "task": "recruitment_scoring",
+  "description": "Playbook évolutif ACE — apprend les décisions RH et les patterns de workflow",
+  "updated_at": "2026-05-29T19:36:57.039052",
+  "token_budget": 8000,
+  "sections": {
+    "scoring_thresholds": {
+      "label": "SEUILS DE SCORING EFFECTIFS",
+      "description": "Seuils réels observés par poste (peuvent différer des seuils IA par défaut)"
+    },
+    "position_patterns": {
+      "label": "PATTERNS PAR TYPE DE POSTE",
+      "description": "Caractéristiques et critères spécifiques par famille de postes"
+    },
+    "override_patterns": {
+      "label": "PATTERNS DE CORRECTION RH",
+      "description": "Situations récurrentes où le RH corrige l'IA — à anticiper"
+    },
+    "bias_guardrails": {
+      "label": "GARDE-FOUS ANTI-BIAIS — NE PAS IGNORER",
+      "description": "Patterns suspects à surveiller pour éviter l'amplification de biais"
+    },
+    "workflow_patterns": {
+      "label": "PATTERNS DE WORKFLOW AUTOMATISÉ",
+      "description": "Comportements appris par l'agent visuel — processus GED automatisés"
+    }
+  },
+  "bullets": [
+    {
+      "id": "ovr-00001",
+      "section": "override_patterns",
+      "content": "Évaluer les compétences pratiques et la personnalité lors de l'entretien pour les candidats avec un score élevé (>80) en développement Python.",
+      "helpful_count": 3,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T11:13:33.909761",
+      "updated_at": "2026-05-18T14:04:06.181199",
+      "metadata": {
+        "position_pattern": "Développeur Python",
+        "ai_score_threshold": 80
+      }
+    },
+    {
+      "id": "scr-00001",
+      "section": "scoring_thresholds",
+      "content": "Réévaluer le poids des critères de notation pour les compétences théoriques et pratiques dans le développement Python.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T11:13:33.909761",
+      "updated_at": "2026-05-17T11:13:33.909761",
+      "metadata": {}
+    },
+    {
+      "id": "pos-00001",
+      "section": "position_patterns",
+      "content": "Utiliser des exercices pratiques et des questions de cas concrets pour évaluer les compétences pratiques des candidats avec un score élevé en développement Python.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T13:11:14.405206",
+      "updated_at": "2026-05-17T13:11:14.405206",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00002",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 60% aux compétences pratiques dans le développement Python pour les postes de Développeur Python junior.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T13:11:14.406434",
+      "updated_at": "2026-05-17T13:11:14.406434",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00003",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 70% aux compétences pratiques pour les postes de Développeur Python Backend pour améliorer la précision du score IA",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T18:39:30.386900",
+      "updated_at": "2026-05-18T09:16:39.563284",
+      "metadata": {}
+    },
+    {
+      "id": "pos-00002",
+      "section": "position_patterns",
+      "content": "Utiliser des exercices pratiques spécifiques au domaine de Backend, tels que la gestion de bases de données et la mise en œuvre de APIs, pour évaluer les compétences pratiques des candidats",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-17T18:39:30.387902",
+      "updated_at": "2026-05-17T18:39:30.387902",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00004",
+      "section": "scoring_thresholds",
+      "content": "Définir un seuil de score minimum de 60 pour les postes de Développeur Python junior pour éviter les faux positifs",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T09:16:39.563284",
+      "updated_at": "2026-05-18T09:16:39.563284",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00003",
+      "section": "override_patterns",
+      "content": "Évaluer les compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la conception de circuits imprimés et la programmation de microcontrôleurs, pour les candidats avec un score élevé en développement Python et en systèmes embarqués.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T10:44:39.928669",
+      "updated_at": "2026-05-18T10:44:39.928669",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 92,
+        "correction_type": "same"
+      }
+    },
+    {
+      "id": "scr-00006",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 85% aux compétences pratiques en programmation de microcontrôleurs et en conception de circuits imprimés pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+      "helpful_count": 3,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T10:44:39.928669",
+      "updated_at": "2026-05-28T13:40:52.206519",
+      "metadata": {}
+    },
+    {
+      "id": "pos-00003",
+      "section": "position_patterns",
+      "content": "Utiliser des exercices pratiques spécifiques au domaine des systèmes embarqués, tels que la simulation de systèmes embarqués et la mise en œuvre de protocoles de communication, pour évaluer les compétences pratiques des candidats",
+      "helpful_count": 2,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T10:44:39.929686",
+      "updated_at": "2026-05-22T08:45:59.028285",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00004",
+      "section": "override_patterns",
+      "content": "Si un candidat possède une certification DO-178C DAL-B et plus de 5 ans d'expérience avec des microcontrôleurs spécifiques comme les STM32H7, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 20,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T13:48:11.357761",
+      "updated_at": "2026-05-29T19:35:56.025850",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00006",
+      "section": "override_patterns",
+      "content": "Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 16,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T14:04:20.823157",
+      "updated_at": "2026-05-29T19:35:56.025850",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 60,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+",
+        "helpful": 2,
+        "harmful": 0
+      }
+    },
+    {
+      "id": "scr-00009",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T14:05:42.270549",
+      "updated_at": "2026-05-18T14:05:42.270549",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00007",
+      "section": "override_patterns",
+      "content": "Si un candidat a un score IA de 60/100 et que le RH a planifié l'entretien manuellement, alors il est probable que les compétences pratiques du candidat aient été évaluées avec succès, et l'entretien devrait être confirmé pour les postes d'Ingénieur systèmes embarqués avec des exigences spécifiques en programmation de microcontrôleurs et conception de circuits imprimés",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-18T14:05:42.271230",
+      "updated_at": "2026-05-18T14:05:42.271230",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00009",
+      "section": "override_patterns",
+      "content": "Si présence de bonne maîtrise C embarqué et de protocoles communication, mais moins de 1 an d'expérience pertinente dans le domaine des systèmes embarqués critiques, alors demander un entretien technique supplémentaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T08:40:44.385582",
+      "updated_at": "2026-05-19T08:40:44.385582",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00010",
+      "section": "override_patterns",
+      "content": "Si présence de certification DO-178C DAL-B et d'expérience avec les microcontrôleurs STM32H7, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+      "helpful_count": 3,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T09:07:30.318022",
+      "updated_at": "2026-05-22T08:52:17.020999",
+      "metadata": {}
+    },
+    {
+      "id": "pos-00004",
+      "section": "position_patterns",
+      "content": "Utiliser des exercices pratiques spécifiques aux protocoles de communication CAN, LIN et Ethernet pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T09:07:30.320023",
+      "updated_at": "2026-05-19T09:07:30.320023",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00013",
+      "section": "override_patterns",
+      "content": "Si présence de bonne maîtrise du C optimisé sur cible temps réel et d'expérience dans l'écosystème défense et aéronautique, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T09:42:47.717498",
+      "updated_at": "2026-05-19T09:42:47.717498",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00014",
+      "section": "override_patterns",
+      "content": "Si présence de FreeRTOS maîtrisé en contexte temps réel dur avec partitionnement avionique et d'expérience dans le développement de firmware de plus de 2 ans, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+      "helpful_count": 2,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T09:58:24.346981",
+      "updated_at": "2026-05-20T10:40:34.193578",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00012",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T09:58:24.349982",
+      "updated_at": "2026-05-22T08:53:00.091003",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00013",
+      "section": "scoring_thresholds",
+      "content": "Pour 'ingenieur systemes embarques', score 0-9 → RH préfère 'Refuse' (observé 1x). Points faibles : Aucune expérience firmware embarqué — profil 100% web, C uniquement au niveau MOOC Coursera, jamais utilisé en contexte industriel.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T10:14:05.938777",
+      "updated_at": "2026-05-19T10:14:05.938777",
+      "metadata": {
+        "position_pattern": "ingenieur systemes embarques",
+        "score_min": 0,
+        "score_max": 9,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-"
+      }
+    },
+    {
+      "id": "bia-00001",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Pour 'ingenieur systemes embarques', score 0-9 → RH préfère 'ListeAttente' (observé 1x). Points forts : VxWorks 7 maîtrisé en production sur 3 ans 8 mois — RTOS certifié requis validé, 3 ans 8 mois d'expérience firmware hors stage en contexte safety-critical. Points faibles : FreeRTOS absent — VxWorks uniquement, adaptation à évaluer, Aucune expérience ARM Cortex-M / STM32 — PowerPC uniquement.",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T11:10:43.219740",
+      "updated_at": "2026-05-19T11:10:43.219740",
+      "metadata": {
+        "position_pattern": "ingenieur systemes embarques",
+        "score_min": 0,
+        "score_max": 9,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-,+"
+      }
+    },
+    {
+      "id": "scr-00014",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 90% aux compétences en RTOS, 80% aux diplômes d'ingénieur ou de master et 75% aux compétences en programmation de microcontrôleurs pour les postes d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T19:26:06.836152",
+      "updated_at": "2026-05-19T19:26:06.836152",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00016",
+      "section": "override_patterns",
+      "content": "Si présence de certification DO-178C DAL-B et d'expérience en embarqué critique supérieure à 3 ans avec des compétences en protocoles de communication CAN, LIN et Ethernet, ainsi qu'en systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 1,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T20:04:59.916058",
+      "updated_at": "2026-05-21T12:58:08.196060",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00015",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet, ainsi qu'en systèmes d'exploitation temps réel, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-19T20:04:59.928125",
+      "updated_at": "2026-05-19T20:04:59.928125",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00002",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur ou de Master 2 (Bac+5) en électronique, électrotechnique ou informatique, et de compétences en programmation embarquée (langage C, microcontrôleurs ARM, architectures RTOS), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T07:55:13.468006",
+      "updated_at": "2026-05-20T07:55:13.468006",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 20,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-"
+      }
+    },
+    {
+      "id": "ovr-00017",
+      "section": "override_patterns",
+      "content": "Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+      "helpful_count": 2,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T07:55:13.472012",
+      "updated_at": "2026-05-28T13:37:31.471213",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 20,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+"
+      }
+    },
+    {
+      "id": "scr-00016",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 90% aux compétences pratiques en FreeRTOS et en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:21:48.229142",
+      "updated_at": "2026-05-20T09:21:48.229142",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00018",
+      "section": "override_patterns",
+      "content": "Si présence de FreeRTOS avec plus de 5 ans d'expérience en safety-critical défense et d'un diplôme d'ingénieur en informatique, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:21:48.230141",
+      "updated_at": "2026-05-20T09:21:48.230141",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00017",
+      "section": "scoring_thresholds",
+      "content": "Définir un seuil de score minimum de 85 pour les compétences pratiques en FreeRTOS et en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:21:48.232142",
+      "updated_at": "2026-05-20T09:21:48.232142",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00018",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 85% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:22:25.780112",
+      "updated_at": "2026-05-20T09:22:25.780112",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00019",
+      "section": "override_patterns",
+      "content": "Si présence de certification DO-178C DAL-B et d'expérience avec les microcontrôleurs STM32H7, ainsi que de compétences en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec un score minimum de 80",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:22:25.781110",
+      "updated_at": "2026-05-20T09:22:25.781110",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00003",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur validé et d'expérience opérationnelle hors stages, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T09:35:02.214178",
+      "updated_at": "2026-05-20T09:35:02.214178",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 20,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-"
+      }
+    },
+    {
+      "id": "ovr-00021",
+      "section": "override_patterns",
+      "content": "Si présence de diplôme d'ingénieur en électronique ou informatique, d'expérience opérationnelle supérieure à 3 ans dans le domaine des systèmes embarqués, de maîtrise de l'architecture ARM Cortex-M7 / STM32H7 et de certification aéronautique DO-178C, ainsi que de compétences pratiques en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T10:41:05.464443",
+      "updated_at": "2026-05-20T10:41:05.464443",
+      "metadata": {}
+    },
+    {
+      "id": "pos-00005",
+      "section": "position_patterns",
+      "content": "Utiliser des exercices pratiques spécifiques au domaine des systèmes embarqués, tels que la simulation de systèmes embarqués et la mise en œuvre de protocoles de communication, pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués, en incluant des scénarios de test de systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T10:41:05.465442",
+      "updated_at": "2026-05-20T10:41:05.465442",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00004",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur ou de Master 2 (Bac+5) en électronique, électrotechnique ou informatique, et de compétences en programmation embarquée (langage C, microcontrôleurs ARM, architectures RTOS), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 50 et moins de 2 ans d'expérience opérationnelle",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T13:26:19.886625",
+      "updated_at": "2026-05-20T13:26:19.886625",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 30,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-"
+      }
+    },
+    {
+      "id": "bia-00005",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence d'expérience opérationnelle globale d'au moins 3 ans sur un poste similaire, hors stages et apprentissages, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 60 et absence de certification DO-178C DAL-B",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T13:26:19.887622",
+      "updated_at": "2026-05-20T13:26:19.887622",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 30,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-"
+      }
+    },
+    {
+      "id": "ovr-00022",
+      "section": "override_patterns",
+      "content": "Si présence de plus de 5 ans d'expérience en développement Python et de compétences techniques pertinentes en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste de Développeur Python Senior",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T14:28:05.422641",
+      "updated_at": "2026-05-20T14:28:05.422641",
+      "metadata": {
+        "position_pattern": "Développeur Python Senior",
+        "ai_score_observed": 80,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+"
+      }
+    },
+    {
+      "id": "scr-00019",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 85% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes de Développeur Python Senior nécessitant des compétences en systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-20T14:28:05.424653",
+      "updated_at": "2026-05-20T14:28:05.424653",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00023",
+      "section": "override_patterns",
+      "content": "Si présence d'une expérience opérationnelle supérieure à 5 ans en ingénierie embarquée critique, d'un diplôme d'ingénieur de niveau Bac+5 et de compétences en certification aéronautique DO-178C (niveau critique DAL-B), alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-21T12:58:26.210385",
+      "updated_at": "2026-05-21T12:58:26.210385",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 92,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+",
+        "helpful": 1,
+        "harmful": 0
+      }
+    },
+    {
+      "id": "ovr-00024",
+      "section": "override_patterns",
+      "content": "Si présence d'une expertise matérielle et logicielle parfaite sur l'architecture processeur ARM Cortex-M7 / STM32H7 et d'une maîtrise de l'intégration de FreeRTOS dans des contextes certifiés, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-21T12:58:26.216383",
+      "updated_at": "2026-05-21T12:58:26.216383",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 92,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+",
+        "helpful": 1,
+        "harmful": 0
+      }
+    },
+    {
+      "id": "bia-00006",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence de compétences en programmation embarquée (langage C, normes MISRA-C) et en électronique (microcontrôleurs, pilotes bas niveau, outils de laboratoire), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-22T08:45:59.022167",
+      "updated_at": "2026-05-22T08:45:59.022167",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00020",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 80% aux compétences pratiques en programmation embarquée et en électronique pour les postes d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-22T08:45:59.027279",
+      "updated_at": "2026-05-22T08:45:59.027279",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00007",
+      "section": "bias_guardrails",
+      "content": "Si absence de certification logicielle DO-178C et d'expérience en développement de systèmes critiques, alors vérifier les compétences en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-22T08:53:00.091003",
+      "updated_at": "2026-05-22T08:53:00.091003",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 80,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-",
+        "helpful": 0,
+        "harmful": 0
+      }
+    },
+    {
+      "id": "scr-00021",
+      "section": "scoring_thresholds",
+      "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet, et un poids minimum de 85% aux compétences en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+      "helpful_count": 1,
+      "harmful_count": 0,
+      "created_at": "2026-05-23T16:13:35.923754",
+      "updated_at": "2026-05-28T13:38:15.615029",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00025",
+      "section": "override_patterns",
+      "content": "Si un candidat possède une certification DO-178C DAL-B, plus de 5 ans d'expérience avec des microcontrôleurs spécifiques comme les STM32H7, et des compétences en protocoles de communication CAN, LIN et Ethernet, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-23T16:13:35.926749",
+      "updated_at": "2026-05-23T16:13:35.926749",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00026",
+      "section": "override_patterns",
+      "content": "Si présence d'un score IA supérieur à 92 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-23T16:24:19.870435",
+      "updated_at": "2026-05-23T16:24:19.870435",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00008",
+      "section": "bias_guardrails",
+      "content": "[SURVEILLANCE] Si absence de compétences en programmation embarquée (langage C, normes MISRA-C) et en électronique (microcontrôleurs ARM, pilotes bas niveau), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 60",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-23T16:24:19.884410",
+      "updated_at": "2026-05-23T16:24:19.884410",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00027",
+      "section": "override_patterns",
+      "content": "Si un candidat a un score IA supérieur à 92 et plus de 5 ans d'expérience en systèmes embarqués, avec des compétences en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-24T20:12:45.783383",
+      "updated_at": "2026-05-24T20:12:45.783383",
+      "metadata": {}
+    },
+    {
+      "id": "scr-00022",
+      "section": "scoring_thresholds",
+      "content": "Définir un seuil de score minimum de 90 pour les compétences pratiques en systèmes d'exploitation temps réel, tels que FreeRTOS ou VxWorks, pour les postes d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-24T20:12:45.784383",
+      "updated_at": "2026-05-24T20:12:45.784383",
+      "metadata": {}
+    },
+    {
+      "id": "bia-00009",
+      "section": "bias_guardrails",
+      "content": "Si absence d'expérience directe dans le secteur aéronautique, alors vérifier les compétences en systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks, et les compétences en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-28T13:38:15.615029",
+      "updated_at": "2026-05-28T13:38:15.615029",
+      "metadata": {}
+    },
+    {
+      "id": "ovr-00028",
+      "section": "override_patterns",
+      "content": "Si un candidat possède plus de 5 ans d'expérience dans un équipementier automobile de renom avec une maîtrise avérée des microcontrôleurs ARM Cortex-M7 et de l'OS FreeRTOS, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-29T19:26:25.847632",
+      "updated_at": "2026-05-29T19:26:25.847632",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 92,
+        "correction_type": "upgrade",
+        "rh_note_signs": "+",
+        "helpful": 0,
+        "harmful": 0
+      }
+    },
+    {
+      "id": "bia-00010",
+      "section": "bias_guardrails",
+      "content": "Si un candidat a une expérience significative dans le développement de systèmes embarqués critiques mais manque de connaissances approfondies sur la norme aéronautique DO-178C, alors évaluer ses compétences en systèmes d'exploitation temps réel et en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+      "helpful_count": 0,
+      "harmful_count": 0,
+      "created_at": "2026-05-29T19:26:25.849630",
+      "updated_at": "2026-05-29T19:26:25.849630",
+      "metadata": {
+        "position_pattern": "Ingénieur systèmes embarqués",
+        "ai_score_observed": 92,
+        "correction_type": "upgrade",
+        "rh_note_signs": "-",
+        "helpful": 0,
+        "harmful": 0
+      }
+    }
+  ],
+  "override_log": [
+    {
+      "event_id": "ov-ebcd4faa06",
+      "logged_at": "2026-05-17T11:13:23.488252",
+      "candidate_id": 31,
+      "candidate_name": "Léa Martin",
+      "position": "Développeur Python",
+      "ai_score": 85,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Refuse",
+      "delta_direction": "downgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Refuse"
+    },
+    {
+      "event_id": "ov-fe0d5e6ade",
+      "logged_at": "2026-05-17T13:11:06.016078",
+      "candidate_id": 35,
+      "candidate_name": "Karim Benali",
+      "position": "Développeur Python junior",
+      "ai_score": 80,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Refuse",
+      "delta_direction": "downgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Refuse"
+    },
+    {
+      "event_id": "ov-b10a21fbe5",
+      "logged_at": "2026-05-17T18:39:20.964665",
+      "candidate_id": 36,
+      "candidate_name": "Sofia Rousseau",
+      "position": "Développeur Python Backend",
+      "ai_score": 0,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "RH a planifié l'entretien manuellement — validation du score IA"
+    },
+    {
+      "event_id": "ov-8e28f76f7e",
+      "logged_at": "2026-05-18T09:16:31.271977",
+      "candidate_id": 45,
+      "candidate_name": "Yasmine Bouri",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 40,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "Refus avant entretien — RH a écarté le candidat"
+    },
+    {
+      "event_id": "ov-4a8b5dfcea",
+      "logged_at": "2026-05-18T09:26:57.302692",
+      "candidate_id": 46,
+      "candidate_name": "Thomas Mercier",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 0,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "RH a planifié l'entretien manuellement — validation du score IA"
+    },
+    {
+      "event_id": "ov-da88b18127",
+      "logged_at": "2026-05-18T13:48:02.790468",
+      "candidate_id": 50,
+      "candidate_name": "Pierre-Henri Leconte",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "anonymous",
+      "notes": "+ DO-178C DAL-B validé chez Thales Avionics — certification industrielle réelle\n+ 7 ans en contexte embarqué critique aéronautique\n+ STM32H7 déployé en production série certifiée\n+ Segger J-Link et chaîne debug professionnelle maîtrisée\n- Pas de mention AUTOSAR (non bloquant pour ce poste)\nNote : + DO-178C DAL-B validé chez Thales Avionics — certification industrielle réelle\n+ 7 ans en contexte embarqué critique aéronautique\n+ STM32H7 déployé en production série certifiée\n+ Segger J-Link et chaîne debug professionnelle maîtrisée\n- Pas de mention AUTOSAR (non bloquant pour ce poste)",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-9074685e00",
+      "logged_at": "2026-05-18T13:48:51.327180",
+      "candidate_id": 50,
+      "candidate_name": "Pierre-Henri Leconte",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "rh_schedule_manual",
+      "notes": "RH a planifié l'entretien manuellement | score IA=92",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-8f8d62d0a7",
+      "logged_at": "2026-05-18T14:04:02.934156",
+      "candidate_id": 51,
+      "candidate_name": "Camille Renard",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 60,
+      "ai_recommendation": "ListeAttente",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "anonymous",
+      "notes": "+ AUTOSAR et protocoles CAN/LIN solides — bonne base embarqué\n+ 4 ans en production automotive Tier1 (Continental)\n- Aucune expérience aéronautique — secteur critique très différent\n- DO-178C et normes sécurité aéronautique totalement absents\n- Transition automobile vers aéronautique non démontrée\nNote : + AUTOSAR et protocoles CAN/LIN solides — bonne base embarqué\n+ 4 ans en production automotive Tier1 (Continental)\n- Aucune expérience aéronautique — secteur critique très différent\n- DO-178C et normes sécurité aéronautique totalement absents\n- Transition automobile vers aéronautique non démontrée",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-e97dc6f808",
+      "logged_at": "2026-05-18T14:05:30.079484",
+      "candidate_id": 51,
+      "candidate_name": "Camille Renard",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 60,
+      "ai_recommendation": "ListeAttente",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "rh_schedule_manual",
+      "notes": "RH a planifié l'entretien manuellement | score IA=60",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-c5485a0b9f",
+      "logged_at": "2026-05-19T08:40:36.008301",
+      "candidate_id": 52,
+      "candidate_name": "Mehdi Aouad",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 85,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Contexte IoT/Edge trop éloigné de l'embarqué critique aéronautique\n- Aucune certification (DO-178C, MISRA-C absents)\n- RTOS Zephyr uniquement — aucune expérience FreeRTOS en safety-critical\n- ESP32 et microcontrôleurs grand public vs STM32H7 industriel\n+ Bonne maîtrise C embarqué et protocoles communication\n+ Expérience protocoles BLE/MQTT (non pertinent ici)",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Contexte IoT/Edge trop éloigné de l'embarqué critique aéronautique"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune certification (DO-178C, MISRA-C absents)"
+        },
+        {
+          "sign": "-",
+          "text": "RTOS Zephyr uniquement — aucune expérience FreeRTOS en safety-critical"
+        },
+        {
+          "sign": "-",
+          "text": "ESP32 et microcontrôleurs grand public vs STM32H7 industriel"
+        },
+        {
+          "sign": "+",
+          "text": "Bonne maîtrise C embarqué et protocoles communication"
+        },
+        {
+          "sign": "+",
+          "text": "Expérience protocoles BLE/MQTT (non pertinent ici)"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-f5be252494",
+      "logged_at": "2026-05-19T09:07:23.497458",
+      "candidate_id": 53,
+      "candidate_name": "Sarah Fontaine",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 0,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ DO-178C DAL-B certifié — Safran 5 ans production aéronautique\n+ FreeRTOS expert — réarchitecture complète et DMA optimisé\n+ STM32H7 en production certifiée — portage BSP Liebherr\n+ MISRA-C expert confirmé — LDRA 45% défauts réduits\n+ Drivers SPI/I2C/UART/CAN écrits en production critique\n+ 5 ans expérience — dépasse seuil 3 ans requis\n+ Dossiers certification validés sans réserve (SRS/SDD/MC/DC)\n- VxWorks mentionné mais sans détail de profondeur\n- Pas de mention AUTOSAR ni CANoe",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "DO-178C DAL-B certifié — Safran 5 ans production aéronautique"
+        },
+        {
+          "sign": "+",
+          "text": "FreeRTOS expert — réarchitecture complète et DMA optimisé"
+        },
+        {
+          "sign": "+",
+          "text": "STM32H7 en production certifiée — portage BSP Liebherr"
+        },
+        {
+          "sign": "+",
+          "text": "MISRA-C expert confirmé — LDRA 45% défauts réduits"
+        },
+        {
+          "sign": "+",
+          "text": "Drivers SPI/I2C/UART/CAN écrits en production critique"
+        },
+        {
+          "sign": "+",
+          "text": "5 ans expérience — dépasse seuil 3 ans requis"
+        },
+        {
+          "sign": "+",
+          "text": "Dossiers certification validés sans réserve (SRS/SDD/MC/DC)"
+        },
+        {
+          "sign": "-",
+          "text": "VxWorks mentionné mais sans détail de profondeur"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de mention AUTOSAR ni CANoe"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-26bb1d99f7",
+      "logged_at": "2026-05-19T09:18:44.731418",
+      "candidate_id": 54,
+      "candidate_name": "Lucas Bernard",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 80,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "ListeAttente",
+      "delta_direction": "upgrade",
+      "user_id": "anonymous",
+      "notes": "+ FreeRTOS 3 ans en production automobile (Valeo)\n+ NXP S32K et STM32 ARM Cortex-M maîtrisés\n+ SPI/UART/CAN/LIN drivers écrits en production\n+ MISRA-C pratiqué avec outillage PC-lint\n+ Lauterbach TRACE32 utilisé en débogage\n+ Diplôme Ingénieur INSA système embarqué\n- Aucune expérience DO-178C ni aéronautique\n- MISRA-C partiel — pas de couverture complète ni MC/DC\n- 3 ans expérience mais contexte automobile, pas critique aéro\n- Anglais B2 — offre exige C1 minimum\n- STM32H7 absent — seulement F4/L4 et NXP\n- Aucune expérience certification (pas de dossier SRS/SDD/MC/DC livré)\nNote : + FreeRTOS 3 ans en production automobile (Valeo)\n+ NXP S32K et STM32 ARM Cortex-M maîtrisés\n+ SPI/UART/CAN/LIN drivers écrits en production\n+ MISRA-C pratiqué avec outillage PC-lint\n+ Lauterbach TRACE32 utilisé en débogage\n+ Diplôme Ingénieur INSA système embarqué\n- Aucune expérience DO-178C ni aéronautique\n- MISRA-C partiel — pas de couverture complète ni MC/DC\n- 3 ans expérience mais contexte automobile, pas critique aéro\n- Anglais B2 — offre exige C1 minimum\n- STM32H7 absent — seulement F4/L4 et NXP\n- Aucune expérience certification (pas de dossier SRS/SDD/MC/DC livré)",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "FreeRTOS 3 ans en production automobile (Valeo)"
+        },
+        {
+          "sign": "+",
+          "text": "NXP S32K et STM32 ARM Cortex-M maîtrisés"
+        },
+        {
+          "sign": "+",
+          "text": "SPI/UART/CAN/LIN drivers écrits en production"
+        },
+        {
+          "sign": "+",
+          "text": "MISRA-C pratiqué avec outillage PC-lint"
+        },
+        {
+          "sign": "+",
+          "text": "Lauterbach TRACE32 utilisé en débogage"
+        },
+        {
+          "sign": "+",
+          "text": "Diplôme Ingénieur INSA système embarqué"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience DO-178C ni aéronautique"
+        },
+        {
+          "sign": "-",
+          "text": "MISRA-C partiel — pas de couverture complète ni MC/DC"
+        },
+        {
+          "sign": "-",
+          "text": "3 ans expérience mais contexte automobile, pas critique aéro"
+        },
+        {
+          "sign": "-",
+          "text": "Anglais B2 — offre exige C1 minimum"
+        },
+        {
+          "sign": "-",
+          "text": "STM32H7 absent — seulement F4/L4 et NXP"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience certification (pas de dossier SRS/SDD/MC/DC livré)"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-a961f6547b",
+      "logged_at": "2026-05-19T09:42:41.437568",
+      "candidate_id": 55,
+      "candidate_name": "Ines Moreau",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 30,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Aucune expérience FreeRTOS, VxWorks ou Zephyr\n- Aucune expérience ARM Cortex-M ou STM32 en contexte industriel\n- MISRA-C non maîtrisé alors qu'il est indispensable\n- Aucune maîtrise des protocoles CAN, SPI ou I2C\n- Expérience firmware safety-critical absente\n- DO-178C non certifiée\n- 2 ans 8 mois en DSP ne comptent pas comme expérience firmware embarqué\n+ Anglais C1 confirmé et opérationnel\n+ Expérience chez Thales dans l'écosystème défense et aéronautique\n+ Stage CEA sur FPGA Zynq avec du C matériel réel\n+ Formation ingénieur ENSEEIHT reconnue\n+ Motivation explicite à évoluer vers l'embarqué matériel\n+ Bonne maîtrise du C optimisé sur cible temps réel",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Aucune expérience FreeRTOS, VxWorks ou Zephyr"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience ARM Cortex-M ou STM32 en contexte industriel"
+        },
+        {
+          "sign": "-",
+          "text": "MISRA-C non maîtrisé alors qu'il est indispensable"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune maîtrise des protocoles CAN, SPI ou I2C"
+        },
+        {
+          "sign": "-",
+          "text": "Expérience firmware safety-critical absente"
+        },
+        {
+          "sign": "-",
+          "text": "DO-178C non certifiée"
+        },
+        {
+          "sign": "-",
+          "text": "2 ans 8 mois en DSP ne comptent pas comme expérience firmware embarqué"
+        },
+        {
+          "sign": "+",
+          "text": "Anglais C1 confirmé et opérationnel"
+        },
+        {
+          "sign": "+",
+          "text": "Expérience chez Thales dans l'écosystème défense et aéronautique"
+        },
+        {
+          "sign": "+",
+          "text": "Stage CEA sur FPGA Zynq avec du C matériel réel"
+        },
+        {
+          "sign": "+",
+          "text": "Formation ingénieur ENSEEIHT reconnue"
+        },
+        {
+          "sign": "+",
+          "text": "Motivation explicite à évoluer vers l'embarqué matériel"
+        },
+        {
+          "sign": "+",
+          "text": "Bonne maîtrise du C optimisé sur cible temps réel"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-a533fc8756",
+      "logged_at": "2026-05-19T09:58:16.974268",
+      "candidate_id": 56,
+      "candidate_name": "Alexandre Dubois",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 0,
+      "ai_recommendation": "Entretien",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ FreeRTOS maîtrisé en contexte temps réel dur avec partitionnement avionique\n+ ARM Cortex-M7 NXP i.MX RT1060 — directement compatible STM32H7 requis\n+ MISRA-C:2012 appliqué en production sur système certifié\n+ CAN 2.0B et SPI maîtrisés sur cible industrielle\n+ 3 ans 8 mois d'expérience firmware hors stage chez Dassault Aviation\n+ Développement driver bas niveau complet avec gestion DMA et FIFO\n- DO-178C en cours de qualification, pas encore certifié auteur\n- Aucune expérience automobile AUTOSAR ou ISO 26262",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "FreeRTOS maîtrisé en contexte temps réel dur avec partitionnement avionique"
+        },
+        {
+          "sign": "+",
+          "text": "ARM Cortex-M7 NXP i.MX RT1060 — directement compatible STM32H7 requis"
+        },
+        {
+          "sign": "+",
+          "text": "MISRA-C:2012 appliqué en production sur système certifié"
+        },
+        {
+          "sign": "+",
+          "text": "CAN 2.0B et SPI maîtrisés sur cible industrielle"
+        },
+        {
+          "sign": "+",
+          "text": "3 ans 8 mois d'expérience firmware hors stage chez Dassault Aviation"
+        },
+        {
+          "sign": "+",
+          "text": "Développement driver bas niveau complet avec gestion DMA et FIFO"
+        },
+        {
+          "sign": "-",
+          "text": "DO-178C en cours de qualification, pas encore certifié auteur"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience automobile AUTOSAR ou ISO 26262"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-03f127f2ae",
+      "logged_at": "2026-05-19T10:13:40.809245",
+      "candidate_id": 57,
+      "candidate_name": "Léa Fontaine",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 0,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Aucune expérience firmware embarqué — profil 100% web\n- C uniquement au niveau MOOC Coursera, jamais utilisé en contexte industriel\n- Aucune connaissance FreeRTOS, VxWorks ou Zephyr\n- Aucune expérience microcontrôleur ARM Cortex-M ou STM32\n- MISRA-C totalement absent\n- Aucune maîtrise des protocoles CAN, SPI, I2C ou UART\n- Aucune expérience débogage matériel (JTAG, oscilloscope, analyseur logique)\nNote : poste demandé ingénieur systèmes embarqués alors que cv recu Développeuse Web Full-Stack, donc  profil non conforne",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Aucune expérience firmware embarqué — profil 100% web"
+        },
+        {
+          "sign": "-",
+          "text": "C uniquement au niveau MOOC Coursera, jamais utilisé en contexte industriel"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune connaissance FreeRTOS, VxWorks ou Zephyr"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience microcontrôleur ARM Cortex-M ou STM32"
+        },
+        {
+          "sign": "-",
+          "text": "MISRA-C totalement absent"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune maîtrise des protocoles CAN, SPI, I2C ou UART"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience débogage matériel (JTAG, oscilloscope, analyseur logique)"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-dce7e4e0e6",
+      "logged_at": "2026-05-19T11:08:55.657280",
+      "candidate_id": 62,
+      "candidate_name": "Julie Marchand",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 0,
+      "ai_recommendation": "ListeAttente",
+      "ai_status": "ATraiter",
+      "human_status": "ListeAttente",
+      "delta_direction": "upgrade",
+      "user_id": "anonymous",
+      "notes": "+ VxWorks 7 maîtrisé en production sur 3 ans 8 mois — RTOS certifié requis validé\n+ 3 ans 8 mois d'expérience firmware hors stage en contexte safety-critical\n+ Développement C temps réel sur architecture embarquée industrielle\n+ Protocoles CAN, SPI, UART transférables depuis MIL-STD-1553 et RS-422\n- FreeRTOS absent — VxWorks uniquement, adaptation à évaluer\n- Aucune expérience ARM Cortex-M / STM32 — PowerPC uniquement\n- MISRA-C:2012 non pratiqué — C standard uniquement\nNote : + VxWorks 7 maîtrisé en production sur 3 ans 8 mois — RTOS certifié requis validé\n+ 3 ans 8 mois d'expérience firmware hors stage en contexte safety-critical\n+ Développement C temps réel sur architecture embarquée industrielle\n+ Protocoles CAN, SPI, UART transférables depuis MIL-STD-1553 et RS-422\n- FreeRTOS absent — VxWorks uniquement, adaptation à évaluer\n- Aucune expérience ARM Cortex-M / STM32 — PowerPC uniquement\n- MISRA-C:2012 non pratiqué — C standard uniquement\nNote : Profil prometteur mais trop de lacunes sur les critères techniques cœur pour avancer immédiatement. À recontacter en priorité si Alexandre Dubois décline l'offre ou si un second poste s'ouvre.",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "VxWorks 7 maîtrisé en production sur 3 ans 8 mois — RTOS certifié requis validé"
+        },
+        {
+          "sign": "+",
+          "text": "3 ans 8 mois d'expérience firmware hors stage en contexte safety-critical"
+        },
+        {
+          "sign": "+",
+          "text": "Développement C temps réel sur architecture embarquée industrielle"
+        },
+        {
+          "sign": "+",
+          "text": "Protocoles CAN, SPI, UART transférables depuis MIL-STD-1553 et RS-422"
+        },
+        {
+          "sign": "-",
+          "text": "FreeRTOS absent — VxWorks uniquement, adaptation à évaluer"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience ARM Cortex-M / STM32 — PowerPC uniquement"
+        },
+        {
+          "sign": "-",
+          "text": "MISRA-C:2012 non pratiqué — C standard uniquement"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-407c61c77f",
+      "logged_at": "2026-05-19T14:32:46.251181",
+      "candidate_id": 63,
+      "candidate_name": "Thomas Blanchard",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 85,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ 3 ans 8 mois hors stage en embarqué critique — dépasse seuil 3 ans requis\n+ MISRA-C:2012 appliqué avec PC-lint Plus en production — indispensable validé\n+ STM32H7 ARM Cortex-M7 déployé en contexte aéronautique série — cible principale validée\n+ Diplôme Ingénieur INSA Toulouse systèmes embarqués — formation exacte requise\n- DO-178C DAL-C uniquement (pas DAL-B) — niveau inférieur à Pierre-Henri Leconte\n- VxWorks uniquement en formation interne Safran, pas en production réelle",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "3 ans 8 mois hors stage en embarqué critique — dépasse seuil 3 ans requis"
+        },
+        {
+          "sign": "+",
+          "text": "MISRA-C:2012 appliqué avec PC-lint Plus en production — indispensable validé"
+        },
+        {
+          "sign": "+",
+          "text": "STM32H7 ARM Cortex-M7 déployé en contexte aéronautique série — cible principale validée"
+        },
+        {
+          "sign": "+",
+          "text": "Diplôme Ingénieur INSA Toulouse systèmes embarqués — formation exacte requise"
+        },
+        {
+          "sign": "-",
+          "text": "DO-178C DAL-C uniquement (pas DAL-B) — niveau inférieur à Pierre-Henri Leconte"
+        },
+        {
+          "sign": "-",
+          "text": "VxWorks uniquement en formation interne Safran, pas en production réelle"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-6a40b7e665",
+      "logged_at": "2026-05-19T19:22:47.923123",
+      "candidate_id": 67,
+      "candidate_name": "Romain Lefèvre",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 40,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- MISRA-C totalement absent — indispensable pour poste critique\n- Profil IoT/cloud (MQTT, AWS, LoRaWAN) très éloigné embarqué critique\n- Pas de diplôme Ingénieur ni Master — Licence Pro uniquement\n- Anglais B1 uniquement — offre exige C1 minimum\n- aucune maîtrise réelle RTOS\n+ Expérience I2C basique sur capteurs réels en production IoT",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "MISRA-C totalement absent — indispensable pour poste critique"
+        },
+        {
+          "sign": "-",
+          "text": "Profil IoT/cloud (MQTT, AWS, LoRaWAN) très éloigné embarqué critique"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de diplôme Ingénieur ni Master — Licence Pro uniquement"
+        },
+        {
+          "sign": "-",
+          "text": "Anglais B1 uniquement — offre exige C1 minimum"
+        },
+        {
+          "sign": "-",
+          "text": "aucune maîtrise réelle RTOS"
+        },
+        {
+          "sign": "+",
+          "text": "Expérience I2C basique sur capteurs réels en production IoT"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-290c7b7c9e",
+      "logged_at": "2026-05-19T20:04:40.240226",
+      "candidate_id": 68,
+      "candidate_name": "Camille Aubert",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 95,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ DO-178C DAL-B certifiée praticien EASA — niveau supérieur   aux exigences du poste\n+ MISRA-C:2012 expert confirmé — responsable qualité code   sur équipe de 3, Polyspace + PC-lint, zéro violation livraison\n+ Rust embarqué en auto-formation + contribution Zephyr upstream   — atouts supplémentaires émergents solides\n+ 5 ans hors stage en embarqué critique — dépasse largement   le seuil 3 ans requis\n+ Vector CANoe maîtrisé chez Actia — atout AUTOSAR validé\n- C++ non utilisé en production certifiée — mineur pour ce poste",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "DO-178C DAL-B certifiée praticien EASA — niveau supérieur   aux exigences du poste"
+        },
+        {
+          "sign": "+",
+          "text": "MISRA-C:2012 expert confirmé — responsable qualité code   sur équipe de 3, Polyspace + PC-lint, zéro violation livraison"
+        },
+        {
+          "sign": "+",
+          "text": "Rust embarqué en auto-formation + contribution Zephyr upstream   — atouts supplémentaires émergents solides"
+        },
+        {
+          "sign": "+",
+          "text": "5 ans hors stage en embarqué critique — dépasse largement   le seuil 3 ans requis"
+        },
+        {
+          "sign": "+",
+          "text": "Vector CANoe maîtrisé chez Actia — atout AUTOSAR validé"
+        },
+        {
+          "sign": "-",
+          "text": "C++ non utilisé en production certifiée — mineur pour ce poste"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-4666d2233f",
+      "logged_at": "2026-05-20T07:54:48.644173",
+      "candidate_id": 69,
+      "candidate_name": "Omar Ziani",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 20,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Niveau d'études insuffisant : Titulaire d'un BTS Électronique , alors que l'offre exige un diplôme d'Ingénieur ou un Master 2 (Bac+5).\n- Manque d'expérience globale : Dispose de 2 ans d'expérience en tant que technicien , là où AeroTech demande au minimum 3 ans d'expérience opérationnelle sur un poste d'ingénieur similaire.\n- Absence totale de programmation embarquée : * Le poste demande la maîtrise du langage C (normes MISRA-C) , du développement sur microcontrôleurs ARM (STM32, etc.) et des architectures RTOS\n+ Connaissance du secteur automobile : Il possède une expérience de près de 2 ans chez Renault (Usine de Flins) , un constructeur qui fait précisément partie des clients d'AeroTech\n+ Compétences électriques : Maîtrise solide du câblage d'armoires et des tests de continuité/isolation , ainsi qu'une habilitation électrique à jour (B2V BR).\nNote : Le candidat n'a pas les compétences techniques requises pour ce poste d'ingénierie logicielle bas niveau. Sa candidature doit être écartée pour ce rôle précis, mais son profil pourrait être partagé avec le département de maintenance des infrastructures ou de production d'AeroTech si des besoins similaires se présentent.",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Niveau d'études insuffisant : Titulaire d'un BTS Électronique , alors que l'offre exige un diplôme d'Ingénieur ou un Master 2 (Bac+5)."
+        },
+        {
+          "sign": "-",
+          "text": "Manque d'expérience globale : Dispose de 2 ans d'expérience en tant que technicien , là où AeroTech demande au minimum 3 ans d'expérience opérationnelle sur un poste d'ingénieur similaire."
+        },
+        {
+          "sign": "-",
+          "text": "Absence totale de programmation embarquée : * Le poste demande la maîtrise du langage C (normes MISRA-C) , du développement sur microcontrôleurs ARM (STM32, etc.) et des architectures RTOS"
+        },
+        {
+          "sign": "+",
+          "text": "Connaissance du secteur automobile : Il possède une expérience de près de 2 ans chez Renault (Usine de Flins) , un constructeur qui fait précisément partie des clients d'AeroTech"
+        },
+        {
+          "sign": "+",
+          "text": "Compétences électriques : Maîtrise solide du câblage d'armoires et des tests de continuité/isolation , ainsi qu'une habilitation électrique à jour (B2V BR)."
+        }
+      ]
+    },
+    {
+      "event_id": "ov-cab7437a2d",
+      "logged_at": "2026-05-20T09:21:05.652182",
+      "candidate_id": 71,
+      "candidate_name": "Kevin Morin",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 85,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Accepte",
+      "delta_direction": "upgrade",
+      "user_id": "anonymous",
+      "notes": "+ FreeRTOS 3 ans 8 mois en safety-critical défense MBDA — RTOS requis validé en contexte critique\n+ Diplôme Ingénieur ENSIIE Informatique et Réseaux — formation Bac+5 validée\n+ Contexte défense/aéronautique MBDA + Thales — secteur critique maîtrisé\nNote : + FreeRTOS 3 ans 8 mois en safety-critical défense MBDA — RTOS requis validé en contexte critique\n+ Diplôme Ingénieur ENSIIE Informatique et Réseaux — formation Bac+5 validée\n+ Contexte défense/aéronautique MBDA + Thales — secteur critique maîtrisé",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "FreeRTOS 3 ans 8 mois en safety-critical défense MBDA — RTOS requis validé en contexte critique"
+        },
+        {
+          "sign": "+",
+          "text": "Diplôme Ingénieur ENSIIE Informatique et Réseaux — formation Bac+5 validée"
+        },
+        {
+          "sign": "+",
+          "text": "Contexte défense/aéronautique MBDA + Thales — secteur critique maîtrisé"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-286c41ba46",
+      "logged_at": "2026-05-20T09:21:12.633808",
+      "candidate_id": 71,
+      "candidate_name": "Kevin Morin",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 85,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Accepte",
+      "human_status": "Accepte",
+      "delta_direction": "same",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Accepte",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-85fb4944f4",
+      "logged_at": "2026-05-20T09:34:58.366682",
+      "candidate_id": 72,
+      "candidate_name": "Anis Gharbi",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 20,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Pas de diplôme ni d'expérience (Incompatibilité majeure) : Il obtiendra son diplôme en 2026 et n'a aucune expérience professionnelle en entreprise (seulement un stage de recherche de 3 mois en laboratoire et des projets scolaires ). AeroTech exige un diplôme d'Ingénieur validé et un minimum de 3 ans d'expérience opérationnelle hors stages\n- Absence de compétences sur les cibles matérielles industrielles : L'offre requiert une maîtrise des microcontrôleurs ARM Cortex-M industriels (STM32, NXP). Les compétences d'Anis se limitent exclusivement à des cartes de prototypage grand public ou d'apprentissage (Arduino Uno, Raspberry Pi 4)\n- Aucune expérience sur les OS Temps Réel (RTOS) : AeroTech demande une expérience éprouvée sur FreeRTOS, Zephyr ou VxWorks. Anis n'a que des notions théoriques et n'a jamais utilisé de RTOS en projet\n- Aucune connaissance des normes de certification : Il n'a aucune notion des normes DO-178C (aéronautique) ou ISO 26262 (automobile) au cœur de l'activité d'AeroTech.\n+ Projets scolaires pratiques : Il possède de bonnes bases théoriques et académiques (traitement d'images avec Python/OpenCV , asservissement PID sur Arduino ).",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Pas de diplôme ni d'expérience (Incompatibilité majeure) : Il obtiendra son diplôme en 2026 et n'a aucune expérience professionnelle en entreprise (seulement un stage de recherche de 3 mois en laboratoire et des projets scolaires ). AeroTech exige un diplôme d'Ingénieur validé et un minimum de 3 ans d'expérience opérationnelle hors stages"
+        },
+        {
+          "sign": "-",
+          "text": "Absence de compétences sur les cibles matérielles industrielles : L'offre requiert une maîtrise des microcontrôleurs ARM Cortex-M industriels (STM32, NXP). Les compétences d'Anis se limitent exclusivement à des cartes de prototypage grand public ou d'apprentissage (Arduino Uno, Raspberry Pi 4)"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune expérience sur les OS Temps Réel (RTOS) : AeroTech demande une expérience éprouvée sur FreeRTOS, Zephyr ou VxWorks. Anis n'a que des notions théoriques et n'a jamais utilisé de RTOS en projet"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune connaissance des normes de certification : Il n'a aucune notion des normes DO-178C (aéronautique) ou ISO 26262 (automobile) au cœur de l'activité d'AeroTech."
+        },
+        {
+          "sign": "+",
+          "text": "Projets scolaires pratiques : Il possède de bonnes bases théoriques et académiques (traitement d'images avec Python/OpenCV , asservissement PID sur Arduino )."
+        }
+      ]
+    },
+    {
+      "event_id": "ov-91d23abcb3",
+      "logged_at": "2026-05-20T10:40:31.624616",
+      "candidate_id": 76,
+      "candidate_name": "Clara Dupuis",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ Adéquation formation et expérience parfaite : Diplômée de l'ENAC (Bac+5) et dotée de près de 5 ans d'expérience opérationnelle en entreprise (4 ans et 8 mois chez Airbus Operations) , ce qui dépasse largement le critère des 3 ans requis\n+ Maîtrise absolue des technologies cibles : Elle développe sur l'architecture exacte demandée par l'offre (ARM Cortex-M7 / STM32H7) et maîtrise l'intégration de FreeRTOS en environnement temps réel exigeant\n+ Rareté et valeur ajoutée sur la certification : Elle est auteure qualifiée pour la norme aéronautique DO-178C (niveaux DAL-B et DAL-C). Comme AeroTech développe des équipements certifiés DO-178C et inclut la rédaction de documentation de certification dans ses missions, son profil est immédiatement opérationnel.\n+ Langages et protocoles totalement maîtrisés : Pratique courante du langage C selon la norme stricte MISRA-C:2012 (exigée par AeroTech ) et maîtrise complète des protocoles SPI, I2C, UART et CAN 2.0B.\n- Aucun point faible technique ou comportemental identifiable par rapport à l'offre",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Adéquation formation et expérience parfaite : Diplômée de l'ENAC (Bac+5) et dotée de près de 5 ans d'expérience opérationnelle en entreprise (4 ans et 8 mois chez Airbus Operations) , ce qui dépasse largement le critère des 3 ans requis"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise absolue des technologies cibles : Elle développe sur l'architecture exacte demandée par l'offre (ARM Cortex-M7 / STM32H7) et maîtrise l'intégration de FreeRTOS en environnement temps réel exigeant"
+        },
+        {
+          "sign": "+",
+          "text": "Rareté et valeur ajoutée sur la certification : Elle est auteure qualifiée pour la norme aéronautique DO-178C (niveaux DAL-B et DAL-C). Comme AeroTech développe des équipements certifiés DO-178C et inclut la rédaction de documentation de certification dans ses missions, son profil est immédiatement opérationnel."
+        },
+        {
+          "sign": "+",
+          "text": "Langages et protocoles totalement maîtrisés : Pratique courante du langage C selon la norme stricte MISRA-C:2012 (exigée par AeroTech ) et maîtrise complète des protocoles SPI, I2C, UART et CAN 2.0B."
+        },
+        {
+          "sign": "-",
+          "text": "Aucun point faible technique ou comportemental identifiable par rapport à l'offre"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-1c2595314e",
+      "logged_at": "2026-05-20T13:25:42.074570",
+      "candidate_id": 77,
+      "candidate_name": "Baptiste Renaud",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 30,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Niveau d'études insuffisant : Titulaire d'une Licence Professionnelle (Bac+3) , alors que l'offre demande explicitement un diplôme d'Ingénieur ou un Master 2 (Bac+5).\n- Manque d'expérience opérationnelle globale : Dispose de seulement 1 an d'expérience acquise en alternance. AeroTech exige un minimum de 3 ans d'expérience opérationnelle sur un poste similaire, hors stages et apprentissages\n- Niveau d'anglais insuffisant : Évalué au niveau B1 technique , tandis que le poste exige un niveau opérationnel C1 minimum.\n- Incompatibilité Matérielle et Logicielle : * Il travaille principalement sur l'environnement et le framework Arduino (C++) appliqué aux puces ESP32 ou nRF52. Le poste requiert un développement rigoureux en langage C sur microcontrôleurs ARM Cortex-M industriels (STM32, NXP).\n+ Compétences en connectivité et sans-fil : Solides connaissances des piles de protocoles de communication IoT courantes telles que BLE GATT, WiFi et MQTT",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Niveau d'études insuffisant : Titulaire d'une Licence Professionnelle (Bac+3) , alors que l'offre demande explicitement un diplôme d'Ingénieur ou un Master 2 (Bac+5)."
+        },
+        {
+          "sign": "-",
+          "text": "Manque d'expérience opérationnelle globale : Dispose de seulement 1 an d'expérience acquise en alternance. AeroTech exige un minimum de 3 ans d'expérience opérationnelle sur un poste similaire, hors stages et apprentissages"
+        },
+        {
+          "sign": "-",
+          "text": "Niveau d'anglais insuffisant : Évalué au niveau B1 technique , tandis que le poste exige un niveau opérationnel C1 minimum."
+        },
+        {
+          "sign": "-",
+          "text": "Incompatibilité Matérielle et Logicielle : * Il travaille principalement sur l'environnement et le framework Arduino (C++) appliqué aux puces ESP32 ou nRF52. Le poste requiert un développement rigoureux en langage C sur microcontrôleurs ARM Cortex-M industriels (STM32, NXP)."
+        },
+        {
+          "sign": "+",
+          "text": "Compétences en connectivité et sans-fil : Solides connaissances des piles de protocoles de communication IoT courantes telles que BLE GATT, WiFi et MQTT"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-fae395eb5d",
+      "logged_at": "2026-05-20T14:27:31.653854",
+      "candidate_id": 2,
+      "candidate_name": "Jean Dupont",
+      "position": "Développeur Python Senior",
+      "ai_score": 80,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ solide expérience en développement Python et des compétences techniques pertinentes\n- manque d'expérience spécifique avec les technologies utilisées par NovaTech Solutions.",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "solide expérience en développement Python et des compétences techniques pertinentes"
+        },
+        {
+          "sign": "-",
+          "text": "manque d'expérience spécifique avec les technologies utilisées par NovaTech Solutions."
+        }
+      ]
+    },
+    {
+      "event_id": "ov-b547a97702",
+      "logged_at": "2026-05-21T12:58:05.436500",
+      "candidate_id": 78,
+      "candidate_name": "Marc Lefebvre",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ Expérience et formation idéales : Diplômé de l'ENSEEIHT (Bac+5) et fort de 6 ans d'expérience opérationnelle en ingénierie embarquée critique (chez Safran et Thales) , ce qui double le critère minimal des 3 ans requis.\n+ Atout majeur sur la certification : Il est auteur qualifié pour la norme aéronautique DO-178C (niveau critique DAL-B) , validé par les autorités de certification (audits DER EASA réussis). Il est immédiatement opérationnel sur la rédaction documentaire exigée par AeroTech.\n+ Expertise matérielle et logicielle parfaite : Il travaille sur l'architecture processeur exacte ciblée par l'offre (ARM Cortex-M7 / STM32H7) et maîtrise parfaitement l'intégration de FreeRTOS dans des contextes certifiés (10 tâches temps réel maîtrisées avec analyse fine du WCET).\n- Il n'affiche pas de compétences spécifiques en Rust ou sur AUTOSAR, mais ces technologies ne sont mentionnées que comme de simples atouts optionnels dans l'offre d'emploi",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience et formation idéales : Diplômé de l'ENSEEIHT (Bac+5) et fort de 6 ans d'expérience opérationnelle en ingénierie embarquée critique (chez Safran et Thales) , ce qui double le critère minimal des 3 ans requis."
+        },
+        {
+          "sign": "+",
+          "text": "Atout majeur sur la certification : Il est auteur qualifié pour la norme aéronautique DO-178C (niveau critique DAL-B) , validé par les autorités de certification (audits DER EASA réussis). Il est immédiatement opérationnel sur la rédaction documentaire exigée par AeroTech."
+        },
+        {
+          "sign": "+",
+          "text": "Expertise matérielle et logicielle parfaite : Il travaille sur l'architecture processeur exacte ciblée par l'offre (ARM Cortex-M7 / STM32H7) et maîtrise parfaitement l'intégration de FreeRTOS dans des contextes certifiés (10 tâches temps réel maîtrisées avec analyse fine du WCET)."
+        },
+        {
+          "sign": "-",
+          "text": "Il n'affiche pas de compétences spécifiques en Rust ou sur AUTOSAR, mais ces technologies ne sont mentionnées que comme de simples atouts optionnels dans l'offre d'emploi"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-eebdb4b02e",
+      "logged_at": "2026-05-22T08:44:44.398975",
+      "candidate_id": 79,
+      "candidate_name": "Nadia Benhamou",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 95,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Refuse",
+      "delta_direction": "upgrade",
+      "user_id": "rh_simple_refusal",
+      "notes": "- Absence totale de programmation embarquée : Le poste exige une maîtrise avancée du langage C (normes MISRA-C). Nadia indique sur son CV n'avoir aucun usage Aucune compétence en électronique ou matérie\n- Aucune compétence en électronique ou matériel cible : Elle n'a jamais travaillé sur des microcontrôleurs (ARM Cortex-M, STM32, NXP), des pilotes bas niveau (BSP) ou des outils de laboratoire (JTAG, os\n+ Niveau d'études : Diplômée d'une grande école (Arts et Métiers ParisTech - Bac+5), ce qui correspond au niveau académique exigé.",
+      "rh_notes": [
+        {
+          "sign": "-",
+          "text": "Absence totale de programmation embarquée : Le poste exige une maîtrise avancée du langage C (normes MISRA-C). Nadia indique sur son CV n'avoir aucun usage Aucune compétence en électronique ou matérie"
+        },
+        {
+          "sign": "-",
+          "text": "Aucune compétence en électronique ou matériel cible : Elle n'a jamais travaillé sur des microcontrôleurs (ARM Cortex-M, STM32, NXP), des pilotes bas niveau (BSP) ou des outils de laboratoire (JTAG, os"
+        },
+        {
+          "sign": "+",
+          "text": "Niveau d'études : Diplômée d'une grande école (Arts et Métiers ParisTech - Bac+5), ce qui correspond au niveau académique exigé."
+        }
+      ]
+    },
+    {
+      "event_id": "ov-09bc26e53e",
+      "logged_at": "2026-05-22T08:52:11.991463",
+      "candidate_id": 80,
+      "candidate_name": "Hugo Rousseau",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 80,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ Diplômé ingénieur (Bac+5) disposant de 3 ans et 8 mois d'expérience chez Schneider Electric, ce qui valide parfaitement le critère des 3 ans d'expérience minimum.\n+ Maîtrise matérielle parfaite de la cible : Expérience concrète et poussée sur l'architecture exacte demandée par AeroTech : les puces STM32H743 (ARM Cortex-M7) et la série STM32F7.\n- Manque de culture de certification logicielle : Il n'a travaillé que sous la norme d'automatisation IEC 61131-3. Il stipule expressément qu'il ne maîtrise pas la norme DO-178C (aéronautique), qui est pourtant au cœur des missions du poste.",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Diplômé ingénieur (Bac+5) disposant de 3 ans et 8 mois d'expérience chez Schneider Electric, ce qui valide parfaitement le critère des 3 ans d'expérience minimum."
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise matérielle parfaite de la cible : Expérience concrète et poussée sur l'architecture exacte demandée par AeroTech : les puces STM32H743 (ARM Cortex-M7) et la série STM32F7."
+        },
+        {
+          "sign": "-",
+          "text": "Manque de culture de certification logicielle : Il n'a travaillé que sous la norme d'automatisation IEC 61131-3. Il stipule expressément qu'il ne maîtrise pas la norme DO-178C (aéronautique), qui est pourtant au cœur des missions du poste."
+        }
+      ]
+    },
+    {
+      "event_id": "ov-ad4e9f5c68",
+      "logged_at": "2026-05-23T16:12:52.539283",
+      "candidate_id": 85,
+      "candidate_name": "Elise Fontaine",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "RH a planifié l'entretien manuellement",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-50136d43a1",
+      "logged_at": "2026-05-23T16:23:28.200178",
+      "candidate_id": 85,
+      "candidate_name": "Elise Fontaine",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Accepte",
+      "delta_direction": "upgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Accepte",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-dcd7a64868",
+      "logged_at": "2026-05-24T20:11:51.713186",
+      "candidate_id": 68,
+      "candidate_name": "Camille Aubert",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 95,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Accepte",
+      "delta_direction": "upgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Accepte",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-c242086758",
+      "logged_at": "2026-05-28T13:00:58.428065",
+      "candidate_id": 89,
+      "candidate_name": "Alexandre Mercier",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "ace_auto",
+      "notes": "[ACE AUTO Phase 4] Entretien | score=92/100 | confiance=95% | poste='Ingénieur systèmes embarqués' | 4 points forts, 2 gaps identifiés",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience de 5 ans dans la conception, le développement et la validation de logiciels critiques de bas niveau"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise de FreeRTOS et développement de pilotes de bas niveau en C/C++"
+        },
+        {
+          "sign": "+",
+          "text": "Connaissance des architectures matérielles ARM Cortex-M et des méthodologies de test de robustesse sur cible"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel"
+        },
+        {
+          "sign": "-",
+          "text": "Pas d'expérience directe dans le secteur aéronautique, mais expérience dans les secteurs médical et ferroviaire"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de mention explicite de la certification DO-178C DAL-B, mais expérience dans des contextes de sécurité critique"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-9564d175ae",
+      "logged_at": "2026-05-28T13:01:20.168821",
+      "candidate_id": 89,
+      "candidate_name": "Alexandre Mercier",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "ace_auto",
+      "notes": "[ACE AUTO Phase 4] Entretien | score=92/100 | confiance=95% | poste='Ingénieur systèmes embarqués' | 4 points forts, 2 gaps identifiés",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience de 5 ans dans la conception, le développement et la validation de logiciels critiques de bas niveau"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise de FreeRTOS et développement de pilotes de bas niveau en C/C++"
+        },
+        {
+          "sign": "+",
+          "text": "Connaissance des architectures matérielles ARM Cortex-M et des méthodologies de test de robustesse sur cible"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel"
+        },
+        {
+          "sign": "-",
+          "text": "Pas d'expérience directe dans le secteur aéronautique, mais expérience dans les secteurs médical et ferroviaire"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de certification DO-178C DAL-B explicitement mentionnée, mais connaissance des normes de sécurité"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-24eb7b114e",
+      "logged_at": "2026-05-28T13:37:28.005543",
+      "candidate_id": 90,
+      "candidate_name": "Julien Rousseau",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "ace_auto",
+      "notes": "[ACE AUTO Phase 4] Entretien | score=92/100 | confiance=95% | poste='Ingénieur systèmes embarqués' | 4 points forts, 2 gaps identifiés",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience de 4 ans en environnement automobile de haute fiabilité"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise du cycle de développement logiciel complet sur cibles ARM de pointe (NXP, STMicroelectronics)"
+        },
+        {
+          "sign": "+",
+          "text": "Expert en portage et optimisation de noyaux temps réel (Zephyr, FreeRTOS)"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel"
+        },
+        {
+          "sign": "-",
+          "text": "Pas d'expérience directe dans le secteur aéronautique"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de mention de compétences en VxWorks"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-726e0f9ef9",
+      "logged_at": "2026-05-28T13:37:53.695645",
+      "candidate_id": 90,
+      "candidate_name": "Julien Rousseau",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Entretien",
+      "delta_direction": "same",
+      "user_id": "ace_auto",
+      "notes": "[ACE AUTO Phase 4] Entretien | score=92/100 | confiance=95% | poste='Ingénieur systèmes embarqués' | 4 points forts, 2 gaps identifiés",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience de 4 ans en environnement automobile de haute fiabilité"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise du cycle de développement logiciel complet sur cibles ARM de pointe (NXP, STMicroelectronics)"
+        },
+        {
+          "sign": "+",
+          "text": "Expert en portage et optimisation de noyaux temps réel (Zephyr, FreeRTOS)"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués"
+        },
+        {
+          "sign": "+",
+          "text": "[Règle playbook] Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel"
+        },
+        {
+          "sign": "-",
+          "text": "Pas d'expérience directe dans le secteur aéronautique"
+        },
+        {
+          "sign": "-",
+          "text": "Pas de mention de compétences en VxWorks"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-6ac4e8451d",
+      "logged_at": "2026-05-28T13:40:49.967581",
+      "candidate_id": 90,
+      "candidate_name": "Julien Rousseau",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Accepte",
+      "delta_direction": "upgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Accepte",
+      "rh_notes": []
+    },
+    {
+      "event_id": "ov-97dedb5b94",
+      "logged_at": "2026-05-29T19:25:25.802442",
+      "candidate_id": 92,
+      "candidate_name": "Maxime Vasseur",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "ATraiter",
+      "ai_status": "ATraiter",
+      "human_status": "Entretien",
+      "delta_direction": "upgrade",
+      "user_id": "rh_schedule_manual",
+      "notes": "+ Expérience professionnelle validée : Le candidat justifie de 3 ans et 6 mois d'expérience post-diplôme acquise au sein d'un équipementier automobile de renom (Actia)\n+ Maîtrise avérée du cœur technologique recherché par AeroTech : microcontrôleurs ARM Cortex-M7 (STM32H7) et gestion native de l'OS FreeRTOS.\n+ Expérience éprouvée du codage en langage C sous les contraintes réglementaires du standard MISRA-C:2012.\n- Il n'a pour l'instant que des notions théoriques sur la norme aéronautique DO-178C",
+      "rh_notes": [
+        {
+          "sign": "+",
+          "text": "Expérience professionnelle validée : Le candidat justifie de 3 ans et 6 mois d'expérience post-diplôme acquise au sein d'un équipementier automobile de renom (Actia)"
+        },
+        {
+          "sign": "+",
+          "text": "Maîtrise avérée du cœur technologique recherché par AeroTech : microcontrôleurs ARM Cortex-M7 (STM32H7) et gestion native de l'OS FreeRTOS."
+        },
+        {
+          "sign": "+",
+          "text": "Expérience éprouvée du codage en langage C sous les contraintes réglementaires du standard MISRA-C:2012."
+        },
+        {
+          "sign": "-",
+          "text": "Il n'a pour l'instant que des notions théoriques sur la norme aéronautique DO-178C"
+        }
+      ]
+    },
+    {
+      "event_id": "ov-3295277e3d",
+      "logged_at": "2026-05-29T19:35:54.066470",
+      "candidate_id": 92,
+      "candidate_name": "Maxime Vasseur",
+      "position": "Ingénieur systèmes embarqués",
+      "ai_score": 92,
+      "ai_recommendation": "Entretien",
+      "ai_status": "Entretien",
+      "human_status": "Accepte",
+      "delta_direction": "upgrade",
+      "user_id": "rh_decision_button",
+      "notes": "Décision post-entretien : Accepte",
+      "rh_notes": []
+    }
+  ],
+  "curator_operations_log": [
+    {
+      "timestamp": "2026-05-17T11:13:33.909761",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00001",
+          "scr-00001"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Évaluer les compétences pratiques et la personnalité lors de l'entretien pour les candidats avec un score élevé (>80) en développement Python.",
+          "metadata": {
+            "position_pattern": "Développeur Python",
+            "ai_score_threshold": 80
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Réévaluer le poids des critères de notation pour les compétences théoriques et pratiques dans le développement Python.",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-17T13:11:08.306309",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00001"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00001",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-17T13:11:14.406434",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "pos-00001",
+          "scr-00002"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Utiliser des exercices pratiques et des questions de cas concrets pour évaluer les compétences pratiques des candidats avec un score élevé en développement Python.",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 60% aux compétences pratiques dans le développement Python pour les postes de Développeur Python junior.",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-17T18:39:24.235744",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00001"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00001",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-17T18:39:30.387902",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00003",
+          "pos-00002"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 70% aux compétences pratiques pour les postes de Développeur Python Backend",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Utiliser des exercices pratiques spécifiques au domaine de Backend, tels que la gestion de bases de données et la mise en œuvre de APIs, pour évaluer les compétences pratiques des candidats",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T09:16:39.563284",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00004"
+        ],
+        "updated": [
+          "scr-00003"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Définir un seuil de score minimum de 60 pour les postes de Développeur Python junior pour éviter les faux positifs",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00003",
+          "content": "Attribuer un poids minimum de 70% aux compétences pratiques pour les postes de Développeur Python Backend pour améliorer la précision du score IA",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T09:27:03.148791",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00002",
+          "scr-00005"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Évaluer les compétences pratiques et la personnalité des candidats pour les postes d'Ingénieur systèmes embarqués avec un score IA inférieur à 20/100, en utilisant des exercices pratiques spécifiques au domaine des systèmes embarqués.",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_threshold": 20
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 50% aux compétences pratiques pour les postes d'Ingénieur systèmes embarqués pour améliorer la précision du score IA.",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T13:48:05.990082",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002",
+          "pos-00003"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "pos-00003",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T13:48:11.358773",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00004",
+          "scr-00007"
+        ],
+        "updated": [
+          "scr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat possède une certification DO-178C DAL-B et plus de 5 ans d'expérience avec des microcontrôleurs spécifiques comme les STM32H7, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués pour les postes d'Ingénieur systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T13:48:53.459925",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002",
+          "pos-00003"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "pos-00003",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T13:48:58.699285",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00005"
+        ],
+        "updated": [
+          "scr-00006"
+        ],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "scoring_thresholds",
+              "content": "Attribuer un poids minimum de 75% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués.",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 75% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués.",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat a un score IA supérieur à 90 et que le RH a planifié l'entretien manuellement, alors il est probable que les compétences pratiques du candidat aient été évaluées avec succès, et l'entretien devrait être confirmé pour les postes d'Ingénieur systèmes embarqués avec un score IA inférieur à 20/100.",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "content": "Attribuer un poids minimum de 75% aux compétences pratiques spécifiques au domaine des systèmes embarqués pour les postes d'Ingénieur systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T14:04:06.181199",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00001",
+          "ovr-00004"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00001",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T14:04:20.823744",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00006",
+          "scr-00008"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Recommander un entretien pour les candidats avec plus de 2 ans d'expérience en production automotive Tier1 et des compétences solides en AUTOSAR et protocoles CAN/LIN pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 60,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 2,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 40% aux compétences en AUTOSAR et protocoles CAN/LIN pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 60,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 1,
+            "harmful": 0
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T14:05:34.456321",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-18T14:05:42.271230",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00009",
+          "ovr-00007"
+        ],
+        "updated": [
+          "scr-00007"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat a un score IA de 60/100 et que le RH a planifié l'entretien manuellement, alors il est probable que les compétences pratiques du candidat aient été évaluées avec succès, et l'entretien devrait être confirmé pour les postes d'Ingénieur systèmes embarqués avec des exigences spécifiques en programmation de microcontrôleurs et conception de circuits imprimés",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00007",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T08:40:38.767375",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T08:40:44.386581",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00008",
+          "ovr-00009"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "scoring_thresholds",
+              "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si absence de certification DO-178C et moins de 2 ans d'expérience avec des microcontrôleurs industriels tels que les STM32H7, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de bonne maîtrise C embarqué et de protocoles communication, mais moins de 1 an d'expérience pertinente dans le domaine des systèmes embarqués critiques, alors demander un entretien technique supplémentaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:07:25.408943",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:07:30.320023",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00010",
+          "scr-00010",
+          "pos-00004"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de certification DO-178C DAL-B et d'expérience avec les microcontrôleurs STM32H7, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 70% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Utiliser des exercices pratiques spécifiques aux protocoles de communication CAN, LIN et Ethernet pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:18:46.690138",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006",
+          "ovr-00008"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00008",
+          "helpful_delta": 0,
+          "harmful_delta": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:18:52.130085",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00011",
+          "scr-00011"
+        ],
+        "updated": [
+          "scr-00010"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de FreeRTOS et de compétences en programmation de microcontrôleurs, mais absence d'expérience dans l'aéronautique, alors vérifier les compétences pratiques en protocoles de communication CAN, LIN et Ethernet avec un score minimum de 70 avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 65% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00010",
+          "content": "Attribuer un poids minimum de 75% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:42:43.514517",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002",
+          "ovr-00008"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00008",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:42:47.717498",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00012",
+          "ovr-00013"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si absence d'expérience avec les systèmes embarqués et les protocoles de communication CAN, SPI ou I2C, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de bonne maîtrise du C optimisé sur cible temps réel et d'expérience dans l'écosystème défense et aéronautique, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:58:19.222482",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006",
+          "ovr-00008"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00008",
+          "helpful_delta": 0,
+          "harmful_delta": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T09:58:24.349982",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00014",
+          "scr-00012"
+        ],
+        "updated": [
+          "ovr-00011"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de FreeRTOS maîtrisé en contexte temps réel dur avec partitionnement avionique et d'expérience dans le développement de firmware de plus de 2 ans, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 75% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et un score minimum de 80 pour les compétences pratiques spécifiques au domaine des systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00011",
+          "content": "Si présence de FreeRTOS et de compétences en programmation de microcontrôleurs, mais absence d'expérience dans l'aéronautique, alors vérifier les compétences pratiques en protocoles de communication CAN, LIN et Ethernet avec un score minimum de 75 avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T10:14:05.938777",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00013"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Pour 'ingenieur systemes embarques', score 0-9 → RH préfère 'Refuse' (observé 1x). Points faibles : Aucune expérience firmware embarqué — profil 100% web, C uniquement au niveau MOOC Coursera, jamais utilisé en contexte industriel.",
+          "metadata": {
+            "position_pattern": "ingenieur systemes embarques",
+            "score_min": 0,
+            "score_max": 9,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T11:10:43.219740",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00001"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Pour 'ingenieur systemes embarques', score 0-9 → RH préfère 'ListeAttente' (observé 1x). Points forts : VxWorks 7 maîtrisé en production sur 3 ans 8 mois — RTOS certifié requis validé, 3 ans 8 mois d'expérience firmware hors stage en contexte safety-critical. Points faibles : FreeRTOS absent — VxWorks uniquement, adaptation à évaluer, Aucune expérience ARM Cortex-M / STM32 — PowerPC uniquement.",
+          "metadata": {
+            "position_pattern": "ingenieur systemes embarques",
+            "score_min": 0,
+            "score_max": 9,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-,+"
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T14:32:48.187494",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006",
+          "ovr-00008"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00008",
+          "helpful_delta": 0,
+          "harmful_delta": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T19:26:06.836152",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00015",
+          "scr-00014"
+        ],
+        "updated": [
+          "ovr-00002"
+        ],
+        "removed": [
+          "scr-00005"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si absence de maîtrise réelle de RTOS, alors refuser le candidat et vérifier les compétences en MISRA-C et en programmation de microcontrôleurs avant validation",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 40,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "content": "Pour le poste d'Ingénieur systèmes embarqués, un score IA inférieur à 50 avec absence de compétences pratiques RTOS → refuser direct",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 90% aux compétences en RTOS, 80% aux diplômes d'ingénieur ou de master et 75% aux compétences en programmation de microcontrôleurs pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "REMOVE",
+          "id": "scr-00005"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T19:26:06.867948",
+      "source": "pruning",
+      "summary": {
+        "added": [],
+        "updated": [],
+        "removed": [
+          "ovr-00008"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "REMOVE",
+          "id": "ovr-00008"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T20:04:43.814978",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-19T20:04:59.929057",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00016",
+          "scr-00015"
+        ],
+        "updated": [
+          "scr-00006"
+        ],
+        "removed": [
+          "scr-00010",
+          "scr-00011"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de certification DO-178C DAL-B et d'expérience en embarqué critique supérieure à 3 ans avec des compétences en protocoles de communication CAN, LIN et Ethernet, ainsi qu'en systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet, ainsi qu'en systèmes d'exploitation temps réel, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "REMOVE",
+          "id": "scr-00010"
+        },
+        {
+          "op": "REMOVE",
+          "id": "scr-00011"
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T07:54:51.522667",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002",
+          "ovr-00010",
+          "ovr-00005"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00010",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00005",
+          "helpful_delta": 0,
+          "harmful_delta": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T07:55:13.472012",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00002",
+          "ovr-00017"
+        ],
+        "updated": [],
+        "removed": [
+          "ovr-00012"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur ou de Master 2 (Bac+5) en électronique, électrotechnique ou informatique, et de compétences en programmation embarquée (langage C, microcontrôleurs ARM, architectures RTOS), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 20,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'expérience supérieure à 2 ans dans le secteur automobile (chez un constructeur tel que Renault) et de compétences électriques avancées (conception de circuits imprimés, protocoles de communication CAN/LIN), alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 20,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+"
+          }
+        },
+        {
+          "op": "REMOVE",
+          "id": "ovr-00012"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T07:55:13.570291",
+      "source": "pruning",
+      "summary": {
+        "added": [],
+        "updated": [],
+        "removed": [
+          "ovr-00005"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "REMOVE",
+          "id": "ovr-00005"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:21:08.469205",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00014"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00014",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:21:29.685295",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:21:48.232142",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00016",
+          "ovr-00018",
+          "scr-00017"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en FreeRTOS et en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de FreeRTOS avec plus de 5 ans d'expérience en safety-critical défense et d'un diplôme d'ingénieur en informatique, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation des compétences en protocoles de communication CAN, LIN et Ethernet",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Définir un seuil de score minimum de 85 pour les compétences pratiques en FreeRTOS et en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:22:25.781110",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00018",
+          "ovr-00019"
+        ],
+        "updated": [
+          "scr-00012"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 85% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00012",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et un score minimum de 80 pour les compétences pratiques spécifiques au domaine des systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de certification DO-178C DAL-B et d'expérience avec les microcontrôleurs STM32H7, ainsi que de compétences en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec un score minimum de 80",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:35:00.559938",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T09:35:02.215163",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00003",
+          "ovr-00020"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur validé et d'expérience opérationnelle hors stages, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 20,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si absence d'expérience sur les OS Temps Réel (RTOS) tels que FreeRTOS, Zephyr ou VxWorks, alors vérifier les compétences en programmation de microcontrôleurs avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 20,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T10:40:34.193578",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00014"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00014",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T10:41:05.465442",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00021",
+          "pos-00005"
+        ],
+        "updated": [
+          "scr-00012"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de diplôme d'ingénieur en électronique ou informatique, d'expérience opérationnelle supérieure à 3 ans dans le domaine des systèmes embarqués, de maîtrise de l'architecture ARM Cortex-M7 / STM32H7 et de certification aéronautique DO-178C, ainsi que de compétences pratiques en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00012",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et un score minimum de 80 pour les compétences pratiques spécifiques au domaine des systèmes embarqués",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        },
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Utiliser des exercices pratiques spécifiques au domaine des systèmes embarqués, tels que la simulation de systèmes embarqués et la mise en œuvre de protocoles de communication, pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués, en incluant des scénarios de test de systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T13:25:44.725401",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00002"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00002",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T13:26:19.887622",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00004",
+          "bia-00005"
+        ],
+        "updated": [],
+        "removed": [
+          "ovr-00002"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence de diplôme d'Ingénieur ou de Master 2 (Bac+5) en électronique, électrotechnique ou informatique, et de compétences en programmation embarquée (langage C, microcontrôleurs ARM, architectures RTOS), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 50 et moins de 2 ans d'expérience opérationnelle",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 30,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence d'expérience opérationnelle globale d'au moins 3 ans sur un poste similaire, hors stages et apprentissages, alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 60 et absence de certification DO-178C DAL-B",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 30,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-"
+          }
+        },
+        {
+          "op": "REMOVE",
+          "id": "ovr-00002"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-20T14:28:05.424653",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00022",
+          "scr-00019"
+        ],
+        "updated": [
+          "scr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence de plus de 5 ans d'expérience en développement Python et de compétences techniques pertinentes en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet, alors entretien prioritaire pour le poste de Développeur Python Senior",
+          "metadata": {
+            "position_pattern": "Développeur Python Senior",
+            "ai_score_observed": 80,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+"
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 85% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes de Développeur Python Senior nécessitant des compétences en systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques spécifiques au domaine des systèmes embarqués, telles que la programmation de microcontrôleurs et la conception de circuits imprimés, pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T12:58:08.196060",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00010",
+          "ovr-00016"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00010",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00016",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-21T12:58:26.216383",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00023",
+          "ovr-00024"
+        ],
+        "updated": [],
+        "removed": [
+          "ovr-00015"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'une expérience opérationnelle supérieure à 5 ans en ingénierie embarquée critique, d'un diplôme d'ingénieur de niveau Bac+5 et de compétences en certification aéronautique DO-178C (niveau critique DAL-B), alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 92,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 1,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'une expertise matérielle et logicielle parfaite sur l'architecture processeur ARM Cortex-M7 / STM32H7 et d'une maîtrise de l'intégration de FreeRTOS dans des contextes certifiés, alors entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 92,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 1,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "REMOVE",
+          "id": "ovr-00015"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-22T08:45:59.028285",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00006",
+          "scr-00020"
+        ],
+        "updated": [
+          "pos-00003"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence de compétences en programmation embarquée (langage C, normes MISRA-C) et en électronique (microcontrôleurs, pilotes bas niveau, outils de laboratoire), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 80% aux compétences pratiques en programmation embarquée et en électronique pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "pos-00003",
+          "content": "Utiliser des exercices pratiques spécifiques au domaine des systèmes embarqués, tels que la simulation de systèmes embarqués et la mise en œuvre de protocoles de communication, pour évaluer les compétences pratiques des candidats",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-22T08:52:17.021916",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00010",
+          "ovr-00020"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00010",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00020",
+          "helpful_delta": 0,
+          "harmful_delta": 1
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-22T08:53:00.091003",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "bia-00007"
+        ],
+        "updated": [
+          "scr-00012"
+        ],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "override_patterns",
+              "content": "Si un candidat possède une certification DO-178C DAL-B et plus de 5 ans d'expérience avec les microcontrôleurs STM32H7, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+              "metadata": {
+                "position_pattern": "Ingénieur systèmes embarqués",
+                "ai_score_observed": 80,
+                "correction_type": "upgrade",
+                "rh_note_signs": "+",
+                "helpful": 0,
+                "harmful": 0
+              }
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat possède une certification DO-178C DAL-B et plus de 5 ans d'expérience avec les microcontrôleurs STM32H7, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 80,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 0,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "Si absence de certification logicielle DO-178C et d'expérience en développement de systèmes critiques, alors vérifier les compétences en programmation de microcontrôleurs et en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 80,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-",
+            "helpful": 0,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00012",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "helpful_delta": 0,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-22T08:53:00.157084",
+      "source": "pruning",
+      "summary": {
+        "added": [],
+        "updated": [],
+        "removed": [
+          "ovr-00020"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "REMOVE",
+          "id": "ovr-00020"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-23T16:12:54.561325",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-23T16:13:35.926749",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "scr-00021",
+          "ovr-00025"
+        ],
+        "updated": [
+          "scr-00006"
+        ],
+        "removed": [
+          "scr-00007",
+          "scr-00008"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 92% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet, et un poids minimum de 88% à la certification DO-178C DAL-B pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat possède une certification DO-178C DAL-B, plus de 5 ans d'expérience avec des microcontrôleurs spécifiques comme les STM32H7, et des compétences en protocoles de communication CAN, LIN et Ethernet, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "content": "Attribuer un poids minimum de 85% aux compétences pratiques en programmation de microcontrôleurs et en conception de circuits imprimés pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et protocoles CAN/LIN",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "REMOVE",
+          "id": "scr-00007"
+        },
+        {
+          "op": "REMOVE",
+          "id": "scr-00008"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-23T16:23:30.765714",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-23T16:24:19.884410",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00026",
+          "bia-00008"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "scoring_thresholds",
+              "content": "Attribuer un poids minimum de 92% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et une certification DO-178C DAL-B",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'un score IA supérieur à 92 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 92% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR et une certification DO-178C DAL-B",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "[SURVEILLANCE] Si absence de compétences en programmation embarquée (langage C, normes MISRA-C) et en électronique (microcontrôleurs ARM, pilotes bas niveau), alors refuser le candidat pour le poste d'Ingénieur systèmes embarqués avec un score IA inférieur à 60",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-24T20:11:54.286715",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006",
+          "scr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-24T20:12:45.784383",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00027",
+          "scr-00022"
+        ],
+        "updated": [],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "scoring_thresholds",
+              "content": "Attribuer un poids minimum de 95% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 95% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat a un score IA supérieur à 92 et plus de 5 ans d'expérience en systèmes embarqués, avec des compétences en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Définir un seuil de score minimum de 90 pour les compétences pratiques en systèmes d'exploitation temps réel, tels que FreeRTOS ou VxWorks, pour les postes d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:01:00.935324",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:10:45.922951",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00006",
+          "ovr-00017"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00017",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:37:31.471213",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00006",
+          "ovr-00017"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00017",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:38:15.615029",
+      "source": "ace_auto_act",
+      "summary": {
+        "added": [
+          "bia-00009"
+        ],
+        "updated": [
+          "scr-00021"
+        ],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "override_patterns",
+              "content": "Si présence d'expérience supérieure à 2 ans dans le secteur automobile et de compétences électriques avancées, notamment en conception de circuits imprimés et en protocoles de communication CAN/LIN, alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'expérience supérieure à 2 ans dans le secteur automobile et de compétences électriques avancées, notamment en conception de circuits imprimés et en protocoles de communication CAN/LIN, alors considérer le candidat pour le poste d'Ingénieur systèmes embarqués avec une évaluation approfondie des compétences en systèmes d'exploitation temps réel",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "Si absence d'expérience directe dans le secteur aéronautique, alors vérifier les compétences en systèmes d'exploitation temps réel tels que FreeRTOS ou VxWorks, et les compétences en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00021",
+          "content": "Attribuer un poids minimum de 90% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet, et un poids minimum de 85% aux compétences en systèmes d'exploitation temps réel pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:40:52.206519",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006",
+          "scr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "scr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-28T13:40:54.696041",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "position_patterns",
+              "content": "Si présence d'un score IA supérieur à 92 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+              "metadata": {
+                "position_pattern": "Ingénieur systèmes embarqués",
+                "ai_score_observed": 92,
+                "correction_type": "upgrade",
+                "rh_note_signs": "+"
+              }
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Si présence d'un score IA supérieur à 92 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 92,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+"
+          }
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-29T19:25:28.160200",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-29T19:26:25.849630",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [
+          "ovr-00028",
+          "bia-00010"
+        ],
+        "updated": [],
+        "removed": [
+          "ovr-00011"
+        ],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si un candidat possède plus de 5 ans d'expérience dans un équipementier automobile de renom avec une maîtrise avérée des microcontrôleurs ARM Cortex-M7 et de l'OS FreeRTOS, alors il doit être sélectionné pour un entretien prioritaire pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 92,
+            "correction_type": "upgrade",
+            "rh_note_signs": "+",
+            "helpful": 0,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "ADD",
+          "section": "bias_guardrails",
+          "content": "Si un candidat a une expérience significative dans le développement de systèmes embarqués critiques mais manque de connaissances approfondies sur la norme aéronautique DO-178C, alors évaluer ses compétences en systèmes d'exploitation temps réel et en protocoles de communication CAN, LIN et Ethernet avant validation pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {
+            "position_pattern": "Ingénieur systèmes embarqués",
+            "ai_score_observed": 92,
+            "correction_type": "upgrade",
+            "rh_note_signs": "-",
+            "helpful": 0,
+            "harmful": 0
+          }
+        },
+        {
+          "op": "REMOVE",
+          "id": "ovr-00011"
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-29T19:35:56.025850",
+      "source": "generator_feedback",
+      "summary": {
+        "added": [],
+        "updated": [
+          "ovr-00004",
+          "ovr-00006"
+        ],
+        "removed": [],
+        "skipped": []
+      },
+      "operations": [
+        {
+          "op": "UPDATE",
+          "id": "ovr-00004",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        },
+        {
+          "op": "UPDATE",
+          "id": "ovr-00006",
+          "helpful_delta": 1,
+          "harmful_delta": 0
+        }
+      ]
+    },
+    {
+      "timestamp": "2026-05-29T19:36:57.039052",
+      "source": "override_pipeline",
+      "summary": {
+        "added": [],
+        "updated": [],
+        "removed": [],
+        "skipped": [
+          {
+            "op": {
+              "op": "ADD",
+              "section": "scoring_thresholds",
+              "content": "Attribuer un poids minimum de 92% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          },
+          {
+            "op": {
+              "op": "ADD",
+              "section": "override_patterns",
+              "content": "Si présence d'un score IA supérieur à 95 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          },
+          {
+            "op": {
+              "op": "ADD",
+              "section": "position_patterns",
+              "content": "Utiliser des exercices pratiques spécifiques aux protocoles de communication CAN, LIN et Ethernet pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués",
+              "metadata": {}
+            },
+            "reason": "duplicate"
+          }
+        ]
+      },
+      "operations": [
+        {
+          "op": "ADD",
+          "section": "scoring_thresholds",
+          "content": "Attribuer un poids minimum de 92% aux compétences pratiques en protocoles de communication CAN, LIN et Ethernet pour les postes d'Ingénieur systèmes embarqués nécessitant des compétences en AUTOSAR",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "override_patterns",
+          "content": "Si présence d'un score IA supérieur à 95 et de compétences pertinentes en systèmes embarqués, notamment en programmation de microcontrôleurs ARM Cortex-M7 et en protocoles de communication CAN, LIN et Ethernet, alors accepter le candidat pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        },
+        {
+          "op": "ADD",
+          "section": "position_patterns",
+          "content": "Utiliser des exercices pratiques spécifiques aux protocoles de communication CAN, LIN et Ethernet pour évaluer les compétences pratiques des candidats pour le poste d'Ingénieur systèmes embarqués",
+          "metadata": {}
+        }
+      ]
+    }
+  ],
+  "baseline_snapshot": {
+    "date": "2026-05-17T10:14:36.481863",
+    "total_candidates": 4,
+    "total_overrides": 0,
+    "avg_ai_score": 0.0,
+    "notes": "baseline avant ACE",
+    "override_rate": "0.0%"
+  }
+}

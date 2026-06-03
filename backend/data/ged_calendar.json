@@ -1,0 +1,89 @@
+{
+  "events": [],
+  "reminders": [
+    {
+      "id": "rem_20260414101134",
+      "type": "contract_renewal",
+      "filename": "modele-cdi.pdf",
+      "document_type": "RH",
+      "expiry_date": "2027-04-14T10:11:34.664858+00:00",
+      "reminder_date": "2027-03-15T10:11:34.664858+00:00",
+      "days_before": 30,
+      "notes": "M. A1, de nationalité non précisée et n° de Sécurité sociale ..., a été engagé en qualité de ... par",
+      "status": "pending",
+      "created_at": "2026-04-14T10:11:34.664858+00:00"
+    },
+    {
+      "id": "rem_20260414101953",
+      "type": "contract_renewal",
+      "filename": "contrat_test_ocr.pdf",
+      "document_type": "RH",
+      "expiry_date": "2027-04-14T10:19:53.801427+00:00",
+      "reminder_date": "2027-03-15T10:19:53.801427+00:00",
+      "days_before": 30,
+      "notes": "Marie Dupont, née le 15 mars 1995, est embauchée en tant qu'Ingénieur IA et Systèmes Agents - Niveau",
+      "status": "pending",
+      "created_at": "2026-04-14T10:19:53.801427+00:00"
+    },
+    {
+      "id": "rem_20260414103016",
+      "type": "contract_renewal",
+      "filename": "Contrat_de_travail_à_durée_indéterminée.docx",
+      "document_type": "RH",
+      "expiry_date": "2027-04-14T10:30:16.249582+00:00",
+      "reminder_date": "2027-03-15T10:30:16.249582+00:00",
+      "days_before": 30,
+      "notes": "L'entreprise \"dénomination sociale, adresse\" a recruté \"civilité, nom, prénom\" en qualité de \"foncti",
+      "status": "pending",
+      "created_at": "2026-04-14T10:30:16.249582+00:00"
+    },
+    {
+      "id": "rem_20260414103654",
+      "type": "contract_renewal",
+      "filename": "modele-contrat-prestation-services.pdf",
+      "document_type": "Juridique",
+      "expiry_date": "2027-04-14T10:36:54.777085+00:00",
+      "reminder_date": "2027-03-15T10:36:54.777085+00:00",
+      "days_before": 30,
+      "notes": "Entre la société [Raison sociale du prestataire, forme juridique, montant de son capital social, adr",
+      "status": "pending",
+      "created_at": "2026-04-14T10:36:54.777085+00:00"
+    },
+    {
+      "id": "rem_20260414121610",
+      "type": "contract_renewal",
+      "filename": "contrat_test_ocr.pdf",
+      "document_type": "RH",
+      "expiry_date": "2027-04-14T12:16:10.621751+00:00",
+      "reminder_date": "2027-03-15T12:16:10.621751+00:00",
+      "days_before": 30,
+      "notes": "Marie Dupont, née le 15 mars 1995, est embauchée en tant qu'Ingénieur IA et Systèmes Agents - Niveau",
+      "status": "pending",
+      "created_at": "2026-04-14T12:16:10.621751+00:00"
+    },
+    {
+      "id": "rem_20260414130035",
+      "type": "contract_renewal",
+      "filename": "contrat_test_ocr.pdf",
+      "document_type": "RH",
+      "expiry_date": "2027-04-14T13:00:35.440540+00:00",
+      "reminder_date": "2027-03-15T13:00:35.440540+00:00",
+      "days_before": 30,
+      "notes": "Error executing tool summarize_document: name 'to_email' is not defined",
+      "status": "pending",
+      "created_at": "2026-04-14T13:00:35.440540+00:00"
+    },
+    {
+      "id": "rem_20260415111336",
+      "type": "contract_renewal",
+      "filename": "Modèle-contrat-de-travail-CDI-CDD-Cadre-KICKLOX.pdf",
+      "document_type": "RH",
+      "expiry_date": "2027-04-15T11:13:36.352823+00:00",
+      "reminder_date": "2027-03-16T11:13:36.352823+00:00",
+      "days_before": 30,
+      "notes": "Le contrat de travail à durée indéterminée entre Nom de votre société, SASU, et M. ..., résidant à P",
+      "status": "pending",
+      "created_at": "2026-04-15T11:13:36.352823+00:00"
+    }
+  ]
+}

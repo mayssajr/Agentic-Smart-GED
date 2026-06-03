@@ -1,0 +1,170 @@
+@startuml CRISP_DM_GED_Recrutement
+
+skinparam DefaultFontName Arial
+skinparam DefaultFontSize 12
+skinparam ArrowColor #555555
+skinparam ArrowThickness 1.5
+skinparam ActivityBackgroundColor #FFFFFF
+skinparam ActivityBorderColor #888888
+skinparam ActivityBorderThickness 1
+skinparam ActivityFontSize 12
+skinparam ActivityDiamondBackgroundColor #FFF8E1
+skinparam ActivityDiamondBorderColor #F0A500
+skinparam ActivityDiamondFontColor #6D4400
+skinparam NoteBackgroundColor #F5F5F5
+skinparam NoteBorderColor #CCCCCC
+skinparam NoteFontSize 11
+skinparam PartitionBackgroundColor #FAFAFA
+skinparam PartitionBorderColor #CCCCCC
+skinparam PartitionFontSize 13
+skinparam PartitionFontStyle bold
+
+title CRISP-DM — GED agentique - Pipeline Recrutement
+
+start
+
+partition "Phase 1 — Compréhension métier" {
+  :Identifier les objectifs métier;
+  :Définir les critères de scoring\n(compétences, expérience, formation);
+  :Analyser l'offre d'emploi de référence\net les exigences du poste;
+  :Valider le périmètre fonctionnel\ndu système GED multi-agents;
+}
+
+partition "Phase 2 — Compréhension des données" {
+  :Collecter les dossiers candidats\n(CVs, lettres de motivation, pièces jointes);
+  note right
+    Formats : PDF, DOCX
+  end note
+  :Explorer la qualité et la diversité\ndes documents soumis;
+  :Identifier les champs pertinents\n(expérience, compétences, formation, langues);
+}
+
+partition "Phase 3 — Préparation des données" {
+  :Extraire le texte brut des fichiers;
+  :Chunker et indexer dans ChromaDB\nvia LlamaIndex;
+  note right
+    Modèle : BAAI/bge-small-en-v1.5
+    Cache SentenceTransformers
+  end note
+}
+
+partition "Phase 4 — Modélisation" {
+  note right
+    Groq API : llama-3.3-70b-versatile\nOrchestratorAgent coordonne tous les agents
+  end note
+
+  :Réception du fichier\n(upload GED ou plateforme RH externe);
+  :Stockage + enregistrement en base\n(statut : EnAttente) + extraction du texte;
+  :Déclenchement automatique\ndu backend agentique Python;
+  note right
+    AssistantAgent disponible en permanence :\nquestions RH, recherche GED, calendrier,\nemails, Légifrance, signature manquante
+  end note
+
+  :ClassifierAgent\n→ type de chaque fichier (CV, LM, contrat, diplôme…);
+  :SummarizerAgent\n→ résumé structuré adapté au type détecté;
+  :Indexation RAG dans ChromaDB via LlamaIndex;
+
+  if (Type de document ?) then (Contrat)
+    :SignatureAgent → détecte zones vides\n→ notifie l'utilisateur → mémorise les signatures;
+    if (Seuil de signatures atteint ?) then (Oui)
+      :Signature automatique sans intervention humaine;
+    else (Non)
+      :Attente intervention utilisateur;
+    endif
+    note right : Pipeline RH ignoré
+  else (Candidature)
+    :TaskAgent → tâches MiniGED\n+ statut candidat : ATraiter;
+    :ScoreAgent → score CV ↔ offre d'emploi (0-100)\n+ enrichissement playbook ACE;
+    note right
+      Le playbook ACE est injecté\ndans le prompt du ScoreAgent
+    end note
+    :AceDecisionAgent → décision selon phase\n(suggestion, justification ou action auto);
+    if (Résultat LLM cohérent ?) then (Non)
+      :Réajuster le prompt ou les paramètres LLM;
+      note right : Retour Phase 3/4
+    else (Oui)
+    endif
+  endif
+}
+
+partition "Phase 5 — Évaluation" {
+  :Afficher le score et la recommandation ACE\ndans ScoreValidationBanner;
+  :Déterminer la phase ACE courante\nselon le nombre d'overrides RH;
+  note right
+    Phase 1 :  0-9  overrides → RH décide tout
+    Phase 2 : 10-19 overrides → ACE suggère
+    Phase 3 : 20-29 overrides → ACE agit (cas clairs)
+    Phase 4 : 30+   overrides → ACE autonome ~80%
+  end note
+
+  if (Phase ACE ?) then (Phase 1)
+    :RH prend la décision finale\n(Planifier / Refuser / Liste d'attente);
+    if (Override RH ?) then (Oui)
+      :Enregistrer l'override\n(POST /ace/override);
+      :Generator → observe la trajectoire\n(observe_override);
+      :Reflector → raffine les insights\n(max 1 round);
+      :Curator → met à jour playbook.json\n(run_curation);
+    else (Non)
+    endif
+
+  else if (Phase ACE ?) then (Phase 2)
+    :ACE affiche une suggestion\navec justification et confiance %;
+    :RH valide ou corrige la suggestion;
+    if (Override RH ?) then (Oui)
+      :Enregistrer l'override → pipeline ACE;
+    else (Non)
+    endif
+
+  else if (Phase ACE ?) then (Phase 3)
+    if (Score > 85 ou Score < 40\nET confiance >= 60% ?) then (Oui)
+      :ACE agit automatiquement\n(Planifier ou Refuser);
+      note right : ace_auto_acted = True
+    else (Non — cas ambigu)
+      :RH requis avec suggestion visible;
+    endif
+
+  else (Phase 4)
+    if (Confiance ACE >= 60% ?) then (Oui)
+      :ACE autonome → action automatique;
+    else (Non)
+      :RH requis (confiance insuffisante);
+    endif
+  endif
+
+  if (Qualité globale satisfaisante ?) then (Non)
+    :Réanalyser les cas d'échec\net ajuster les seuils ACE;
+    note right : Retour modélisation\nou préparation
+  else (Oui)
+  endif
+}
+
+partition "Phase 6 — Déploiement" {
+  :Pipeline actif en production\n(FastAPI + .NET MiniGED + Vue.js);
+  note right
+    MCP local : miniged tools
+    MCP serveur : Google Calendar (convocations)
+    MCP serveur : Gmail (emails candidats)
+  end note
+  :Monitorer les performances\ndu système en continu;
+  :Collecter les retours RH\net les nouveaux overrides;
+  fork
+    :Mettre à jour le playbook ACE\n(apprentissage continu);
+  fork again
+    :Générer les rapports\net statistiques de recrutement;
+  fork again
+    :Faire évoluer la phase ACE\nselon le seuil d'overrides atteint;
+  end fork
+  if (Nouveau besoin métier\nou dérive du modèle ?) then (Oui)
+    :Reprendre le cycle CRISP-DM\ndepuis Phase 1;
+    note right
+      Ex : nouveau poste, critères
+      changés, nouveau LLM
+    end note
+  else (Non)
+    :Cycle continu d'amélioration\n(CRISP-DM itératif + ACE adaptatif);
+  endif
+}
+
+stop
+
+@enduml

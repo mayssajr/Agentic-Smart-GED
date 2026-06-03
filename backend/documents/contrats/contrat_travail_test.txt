@@ -1,0 +1,197 @@
+================================================================================
+                        CONTRAT DE TRAVAIL À DURÉE INDÉTERMINÉE
+================================================================================
+
+Entre les soussignés :
+
+La société TECH INNOV SAS
+Siège social : 14 Rue de la Paix, 75002 Paris
+SIRET : 892 345 678 00019
+Représentée par M. Laurent DUPONT, Directeur Général
+Ci-après dénommée « l'Employeur »
+
+ET
+
+Mme Sarah MARTIN
+Née le 12 mars 1994 à Lyon (69)
+Demeurant : 8 Avenue Jean Jaurès, 69007 Lyon
+Numéro de Sécurité Sociale : 2 94 03 69 123 456 78
+Ci-après dénommée « la Salariée »
+
+Il a été convenu ce qui suit :
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 1 — ENGAGEMENT ET PRISE DE FONCTION
+────────────────────────────────────────────────────────────────────────────────
+
+La Salariée est engagée à compter du 1er mars 2024 en qualité de
+Ingénieure Développement Logiciel Senior, statut Cadre, position 2.2,
+coefficient 130, selon la Convention Collective Nationale SYNTEC (IDCC 1486).
+
+La période d'essai est fixée à 4 (quatre) mois, renouvelable une fois pour
+une durée identique, soit 8 mois au total, conformément aux dispositions
+conventionnelles applicables aux cadres.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 2 — FONCTIONS ET RESPONSABILITÉS
+────────────────────────────────────────────────────────────────────────────────
+
+La Salariée exercera les missions suivantes :
+  • Conception et développement d'applications backend (Python, FastAPI)
+  • Architecture et déploiement de systèmes distribués (Kubernetes, Docker)
+  • Encadrement technique d'une équipe de 3 développeurs juniors
+  • Participation aux revues de code et définition des bonnes pratiques
+  • Collaboration avec les équipes Produit et Data Science
+  • Rédaction de documentation technique
+
+La Salariée exercera ses fonctions sous l'autorité de M. Pierre RENARD,
+Directeur Technique (CTO), à qui elle rendra compte de son activité.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 3 — LIEU DE TRAVAIL
+────────────────────────────────────────────────────────────────────────────────
+
+Le lieu de travail principal est fixé au siège social de la société :
+14 Rue de la Paix, 75002 Paris.
+
+Un accord de télétravail sera conclu séparément, permettant à la Salariée
+d'exercer ses fonctions à distance jusqu'à 3 jours par semaine.
+
+La Salariée pourra être amenée à se déplacer en France et à l'étranger dans
+le cadre de ses missions, sans que cela constitue une modification du contrat.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 4 — DURÉE DU TRAVAIL
+────────────────────────────────────────────────────────────────────────────────
+
+La Salariée relève du forfait annuel en jours, fixé à 218 jours travaillés
+par année civile complète, conformément à l'accord d'entreprise du 15 janvier 2022.
+
+En contrepartie, la Salariée bénéficiera de 12 jours de repos supplémentaires
+(JRTT) par année civile, proratisés en cas d'entrée ou de sortie en cours d'année.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 5 — RÉMUNÉRATION
+────────────────────────────────────────────────────────────────────────────────
+
+5.1 Salaire de base
+La Salariée percevra une rémunération brute mensuelle de 4 500,00 € (quatre mille
+cinq cents euros), soit 54 000,00 € bruts annuels.
+
+5.2 Prime sur objectifs
+Une prime variable annuelle pouvant atteindre 15 % du salaire brut annuel
+(soit 8 100,00 € maximum) sera versée en fonction de l'atteinte d'objectifs
+définis lors de l'entretien annuel de performance.
+
+5.3 Prime de participation et intéressement
+La Salariée bénéficiera des accords de participation et d'intéressement
+en vigueur dans l'entreprise, dans les conditions légales et conventionnelles.
+
+5.4 Avantages en nature et frais professionnels
+  • Titre-restaurant d'une valeur faciale de 11,50 € (prise en charge employeur : 60 %)
+  • Remboursement des frais de transport en commun à hauteur de 50 % (Pass Navigo)
+  • Mutuelle d'entreprise : cotisation prise en charge à 70 % par l'Employeur
+  • Forfait téléphonique : 30 € nets par mois
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 6 — CONGÉS PAYÉS
+────────────────────────────────────────────────────────────────────────────────
+
+La Salariée bénéficiera de 25 jours ouvrés de congés payés par an,
+conformément aux dispositions légales et conventionnelles.
+
+La période de référence pour l'acquisition des congés est fixée du
+1er juin au 31 mai de chaque année.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 7 — CLAUSE DE CONFIDENTIALITÉ
+────────────────────────────────────────────────────────────────────────────────
+
+La Salariée s'engage à respecter une stricte confidentialité concernant
+toutes les informations dont elle aura connaissance dans l'exercice de ses
+fonctions, notamment :
+  • Les données clients, partenaires et fournisseurs
+  • Les codes sources, algorithmes et architectures techniques
+  • Les données financières et stratégiques de l'entreprise
+  • Les informations relatives aux projets en cours ou futurs
+
+Cette obligation de confidentialité s'applique pendant toute la durée du
+contrat et pendant une période de 3 ans après la cessation de celui-ci.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 8 — CLAUSE DE NON-CONCURRENCE
+────────────────────────────────────────────────────────────────────────────────
+
+À l'issue du contrat, quelle qu'en soit la cause, la Salariée s'interdit
+d'exercer toute activité concurrente pendant une durée de 12 mois, sur
+le territoire français, auprès de toute société dont l'activité principale
+est le développement de logiciels de gestion documentaire ou d'intelligence
+artificielle appliquée aux entreprises.
+
+En contrepartie, l'Employeur versera à la Salariée une indemnité mensuelle
+de non-concurrence égale à 33 % de sa rémunération brute mensuelle moyenne
+des 12 derniers mois précédant la rupture du contrat.
+
+L'Employeur se réserve le droit de lever cette clause dans un délai de
+15 jours suivant la notification de la rupture du contrat.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 9 — PROPRIÉTÉ INTELLECTUELLE
+────────────────────────────────────────────────────────────────────────────────
+
+L'ensemble des créations, inventions, logiciels, bases de données, travaux
+et développements réalisés par la Salariée dans le cadre de ses fonctions
+sont et resteront la propriété exclusive de l'Employeur, conformément aux
+articles L.111-1 et suivants du Code de la propriété intellectuelle.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 10 — RUPTURE DU CONTRAT
+────────────────────────────────────────────────────────────────────────────────
+
+Le présent contrat pourra être rompu dans les conditions prévues par le
+Code du travail et la Convention Collective SYNTEC.
+
+Le préavis applicable aux cadres est fixé à 3 mois, sauf faute grave
+ou lourde, ou dispense de préavis accordée par l'une ou l'autre des parties.
+
+────────────────────────────────────────────────────────────────────────────────
+ARTICLE 11 — CONVENTION COLLECTIVE ET DROIT APPLICABLE
+────────────────────────────────────────────────────────────────────────────────
+
+Le présent contrat est soumis au droit français.
+La Convention Collective Nationale applicable est celle des Bureaux d'Études
+Techniques, Cabinets d'Ingénieurs-Conseils et Sociétés de Conseil (SYNTEC),
+IDCC 1486, dont un exemplaire est tenu à disposition de la Salariée.
+
+────────────────────────────────────────────────────────────────────────────────
+
+Fait à Paris, le 15 février 2024
+En deux exemplaires originaux, dont un remis à chaque partie.
+
+Pour l'Employeur,                          La Salariée,
+M. Laurent DUPONT                          Mme Sarah MARTIN
+Directeur Général                          (Signature précédée de la mention
+TECH INNOV SAS                             « Lu et approuvé »)
+
+
+_______________________                    _______________________
+[SIGNATURE]                                [SIGNATURE]
+
+
+================================================================================
+ANNEXE — OBJECTIFS ANNÉE 2024 (définis conjointement)
+================================================================================
+
+  1. Livraison du module de gestion documentaire v2.0 avant le 30 juin 2024
+     → Pondération : 40 %
+
+  2. Mise en place du pipeline CI/CD complet d'ici le 31 mars 2024
+     → Pondération : 20 %
+
+  3. Satisfaction de l'équipe (score NPS interne ≥ 8/10)
+     → Pondération : 20 %
+
+  4. Réduction des incidents de production de 30 % vs 2023
+     → Pondération : 20 %
+
+================================================================================
